@@ -7,629 +7,701 @@
 <title>Farandzolla | Personal Portfolio</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-:root {
-    --black: #050505;
-    --dark: #0d0d0d;
-    --gray: #151515;
-    --gray2: #777;
-    --white: #fff;
-    --border: rgba(255,255,255,.13);
+:root{
+    --black:#050505;
+    --dark:#0c0c0c;
+    --gray:#171717;
+    --gray2:#777;
+    --white:#fff;
+    --border:rgba(255,255,255,.13);
 }
 
-body {
-    background: var(--black);
-    color: var(--white);
-    font-family: Arial, Helvetica, sans-serif;
-    overflow-x: hidden;
+body{
+    background:var(--black);
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
 /* ================= NAVBAR ================= */
 
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    background: rgba(5,5,5,.82);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(5,5,5,.85);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
 }
 
-nav {
-    max-width: 1200px;
-    height: 75px;
-    margin: auto;
-    padding: 0 30px;
+nav{
+    max-width:1200px;
+    height:75px;
+    margin:auto;
+    padding:0 30px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.logo {
-    font-size: 21px;
-    font-weight: bold;
-    letter-spacing: 3px;
+.logo{
+    font-size:21px;
+    font-weight:bold;
+    letter-spacing:3px;
 }
 
-.logo span {
-    color: #777;
+.logo span{
+    color:#777;
 }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
 }
 
-.nav-links a {
-    color: #aaa;
-    font-size: 14px;
-    transition: .3s;
+.nav-links a{
+    color:#aaa;
+    font-size:14px;
+    transition:.3s;
 }
 
-.nav-links a:hover {
-    color: white;
+.nav-links a:hover{
+    color:white;
 }
 
-.menu {
-    display: none;
-    font-size: 26px;
-    cursor: pointer;
+.menu{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
 }
 
 /* ================= HERO ================= */
 
-.hero {
-    min-height: 100vh;
-    max-width: 1200px;
-    margin: auto;
-    padding: 130px 30px 80px;
+.hero{
+    min-height:100vh;
+    max-width:1200px;
+    margin:auto;
+    padding:130px 30px 80px;
 
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 80px;
-    align-items: center;
+    display:grid;
+    grid-template-columns:1fr 430px;
+    gap:80px;
+    align-items:center;
 }
 
-.hero-text {
-    animation: fadeUp 1s ease;
+.hero-text{
+    animation:fadeUp 1s ease;
 }
 
-.subtitle {
-    color: #888;
-    letter-spacing: 5px;
-    font-size: 13px;
-    margin-bottom: 20px;
+.subtitle{
+    color:#888;
+    letter-spacing:5px;
+    font-size:13px;
+    margin-bottom:20px;
 }
 
-.hero h1 {
-    font-size: clamp(60px, 9vw, 110px);
-    line-height: .85;
-    letter-spacing: -6px;
-    margin-bottom: 25px;
+.hero h1{
+    font-size:clamp(60px,9vw,110px);
+    line-height:.85;
+    letter-spacing:-6px;
+    margin-bottom:25px;
 }
 
-.hero h1 span {
-    color: #666;
+.hero h1 span{
+    color:#666;
 }
 
-.typing {
-    font-size: 21px;
-    color: #ccc;
-    min-height: 32px;
-    margin-bottom: 20px;
+.typing{
+    font-size:21px;
+    color:#ccc;
+    min-height:32px;
+    margin-bottom:20px;
 }
 
-.description {
-    max-width: 580px;
-    color: #888;
-    line-height: 1.8;
-    margin-bottom: 30px;
+.description{
+    max-width:580px;
+    color:#888;
+    line-height:1.8;
+    margin-bottom:30px;
 }
 
-.buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-.btn {
-    padding: 13px 24px;
-    border: 1px solid white;
-    transition: .3s;
-    font-size: 14px;
+.btn{
+    padding:13px 24px;
+    border:1px solid white;
+    transition:.3s;
+    font-size:14px;
 }
 
-.btn.primary {
-    background: white;
-    color: black;
+.btn.primary{
+    background:white;
+    color:black;
 }
 
-.btn:hover {
-    background: white;
-    color: black;
-    transform: translateY(-4px);
+.btn:hover{
+    background:white;
+    color:black;
+    transform:translateY(-4px);
 }
 
-.btn.primary:hover {
-    background: transparent;
-    color: white;
+/* ================= PHOTO EDITOR ================= */
+
+.profile-area{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-/* ================= PROFILE PHOTO ================= */
-
-.profile-area {
-    display: flex;
-    justify-content: center;
+.profile-frame{
+    width:360px;
+    height:470px;
+    position:relative;
+    padding:10px;
+    border:1px solid #555;
 }
 
-.profile-frame {
-    width: 360px;
-    height: 470px;
-    position: relative;
-    padding: 10px;
-    border: 1px solid #555;
+.profile-frame::before{
+    content:"";
+    position:absolute;
+    top:-18px;
+    left:-18px;
+    width:90px;
+    height:90px;
+    border-top:3px solid white;
+    border-left:3px solid white;
 }
 
-.profile-frame::before {
-    content: "";
-    position: absolute;
-
-    top: -18px;
-    left: -18px;
-
-    width: 90px;
-    height: 90px;
-
-    border-top: 3px solid white;
-    border-left: 3px solid white;
+.profile-frame::after{
+    content:"";
+    position:absolute;
+    right:-18px;
+    bottom:-18px;
+    width:90px;
+    height:90px;
+    border-right:3px solid white;
+    border-bottom:3px solid white;
 }
 
-.profile-frame::after {
-    content: "";
-    position: absolute;
+.profile-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 
-    right: -18px;
-    bottom: -18px;
-
-    width: 90px;
-    height: 90px;
-
-    border-right: 3px solid white;
-    border-bottom: 3px solid white;
+    filter:var(--photo-filter,none);
+    transition:filter .3s;
 }
 
-.profile-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* ================= PHOTO CONTROLS ================= */
 
-    display: block;
-
-    filter: grayscale(100%);
-    transition: .5s;
+.photo-controls{
+    width:360px;
+    margin-top:35px;
 }
 
-.profile-frame:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.02);
+.upload-btn{
+    width:100%;
+    display:block;
+    text-align:center;
+
+    padding:13px;
+    border:1px solid white;
+    cursor:pointer;
+
+    transition:.3s;
+    font-size:14px;
+}
+
+.upload-btn:hover{
+    background:white;
+    color:black;
+}
+
+#photoUpload{
+    display:none;
+}
+
+/* FILTER BUTTONS */
+
+.filter-title{
+    margin:25px 0 12px;
+    color:#888;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.filters{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:7px;
+}
+
+.filter-btn{
+    background:#111;
+    color:#aaa;
+    border:1px solid #252525;
+    padding:9px 5px;
+    cursor:pointer;
+    font-size:11px;
+    transition:.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:white;
+    color:black;
+    border-color:white;
+}
+
+/* SLIDERS */
+
+.adjustments{
+    margin-top:20px;
+}
+
+.slider-row{
+    margin-bottom:14px;
+}
+
+.slider-info{
+    display:flex;
+    justify-content:space-between;
+    color:#888;
+    font-size:11px;
+    margin-bottom:5px;
+}
+
+input[type="range"]{
+    width:100%;
+    accent-color:white;
+    cursor:pointer;
+}
+
+.reset-btn{
+    width:100%;
+    margin-top:5px;
+    padding:10px;
+
+    background:transparent;
+    color:#777;
+    border:1px solid #333;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.reset-btn:hover{
+    color:white;
+    border-color:white;
 }
 
 /* ================= SECTION ================= */
 
-section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 110px 30px;
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:110px 30px;
 }
 
-.section-label {
-    color: #555;
-    font-size: 13px;
-    letter-spacing: 4px;
+.section-label{
+    color:#555;
+    font-size:13px;
+    letter-spacing:4px;
 }
 
-.section-title {
-    font-size: 52px;
-    margin: 8px 0 50px;
-    letter-spacing: -2px;
+.section-title{
+    font-size:52px;
+    margin:8px 0 50px;
+    letter-spacing:-2px;
 }
 
 /* ================= ABOUT ================= */
 
-.about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
 }
 
-.about-text {
-    color: #999;
-    font-size: 17px;
-    line-height: 1.9;
+.about-text{
+    color:#999;
+    font-size:17px;
+    line-height:1.9;
 }
 
-.info {
-    border-top: 1px solid var(--border);
+.info{
+    border-top:1px solid var(--border);
 }
 
-.info-row {
-    display: flex;
-    justify-content: space-between;
-
-    padding: 17px 0;
-    border-bottom: 1px solid var(--border);
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:17px 0;
+    border-bottom:1px solid var(--border);
 }
 
-.info-row span {
-    color: #666;
+.info-row span{
+    color:#666;
 }
 
 /* ================= SKILLS ================= */
 
-.skills {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-.card {
-    background: var(--dark);
-    border: 1px solid var(--border);
-    padding: 30px;
-
-    transition: .35s;
+.card{
+    background:#0c0c0c;
+    border:1px solid var(--border);
+    padding:30px;
+    transition:.35s;
 }
 
-.card:hover {
-    transform: translateY(-8px);
-    border-color: #777;
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#777;
 }
 
-.card h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
+.card h3{
+    font-size:22px;
+    margin-bottom:10px;
 }
 
-.card p {
-    color: #777;
-    line-height: 1.7;
+.card p{
+    color:#777;
+    line-height:1.7;
 }
 
 /* ================= INTEREST ================= */
 
-.interests {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 15px;
+.interests{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
-.interest {
-    height: 190px;
-    padding: 25px;
+.interest{
+    height:190px;
+    padding:25px;
 
-    border: 1px solid var(--border);
-    background: #0b0b0b;
+    border:1px solid var(--border);
+    background:#0b0b0b;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
 
-    transition: .35s;
+    transition:.35s;
 }
 
-.interest:hover {
-    background: white;
-    color: black;
-    transform: translateY(-7px);
+.interest:hover{
+    background:white;
+    color:black;
+    transform:translateY(-7px);
 }
 
-.interest p {
-    color: #777;
-    margin-top: 5px;
-}
-
-.interest:hover p {
-    color: #333;
+.interest p{
+    color:#777;
+    margin-top:5px;
 }
 
 /* ================= PROJECT ================= */
 
-.projects {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 20px;
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
-.project {
-    min-height: 270px;
-    padding: 30px;
+.project{
+    min-height:270px;
+    padding:30px;
 
-    border: 1px solid var(--border);
-    background: linear-gradient(145deg,#111,#080808);
+    border:1px solid var(--border);
+    background:linear-gradient(145deg,#111,#080808);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
 
-    transition: .35s;
+    transition:.35s;
 }
 
-.project:hover {
-    transform: translateY(-7px);
-    border-color: #777;
+.project:hover{
+    transform:translateY(-7px);
+    border-color:#777;
 }
 
-.project-number {
-    color: #555;
-    margin-bottom: auto;
+.project-number{
+    color:#555;
+    margin-bottom:auto;
 }
 
-.project h3 {
-    font-size: 28px;
-    margin-bottom: 8px;
+.project h3{
+    font-size:28px;
+    margin-bottom:8px;
 }
 
-.project p {
-    color: #777;
+.project p{
+    color:#777;
 }
 
 /* ================= JOURNEY ================= */
 
-.timeline {
-    border-left: 1px solid #444;
-    padding-left: 35px;
+.timeline{
+    border-left:1px solid #444;
+    padding-left:35px;
 }
 
-.timeline-item {
-    position: relative;
-    padding-bottom: 45px;
+.timeline-item{
+    position:relative;
+    padding-bottom:45px;
 }
 
-.timeline-item::before {
-    content: "";
-
-    position: absolute;
-    left: -41px;
-    top: 5px;
-
-    width: 10px;
-    height: 10px;
-
-    background: white;
-    border-radius: 50%;
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-41px;
+    top:5px;
+    width:10px;
+    height:10px;
+    background:white;
+    border-radius:50%;
 }
 
-.timeline-item span {
-    color: #555;
-    font-size: 12px;
-    letter-spacing: 2px;
+.timeline-item span{
+    color:#555;
+    font-size:12px;
+    letter-spacing:2px;
 }
 
-.timeline-item h3 {
-    font-size: 25px;
-    margin: 7px 0;
+.timeline-item h3{
+    font-size:25px;
+    margin:7px 0;
 }
 
-.timeline-item p {
-    color: #777;
+.timeline-item p{
+    color:#777;
 }
 
 /* ================= GOAL ================= */
 
-.goal {
-    text-align: center;
-    padding: 70px 30px;
-    border: 1px solid var(--border);
+.goal{
+    text-align:center;
+    padding:70px 30px;
+    border:1px solid var(--border);
 }
 
-.goal h2 {
-    font-size: clamp(40px,6vw,70px);
-    line-height: 1;
-    margin: 20px 0;
+.goal h2{
+    font-size:clamp(40px,6vw,70px);
+    line-height:1;
+    margin:20px 0;
 }
 
-.goal p {
-    color: #777;
-    max-width: 650px;
-    margin: auto;
-    line-height: 1.8;
+.goal p{
+    color:#777;
+    max-width:650px;
+    margin:auto;
+    line-height:1.8;
 }
 
 /* ================= CONTACT ================= */
 
-.contact {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
-
-    padding: 40px;
-
-    border: 1px solid var(--border);
+.contact{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+    padding:40px;
+    border:1px solid var(--border);
 }
 
-.contact h3 {
-    font-size: 30px;
+.contact h3{
+    font-size:30px;
 }
 
-.contact p {
-    color: #777;
+.contact p{
+    color:#777;
 }
 
-.contact-links {
-    display: flex;
-    gap: 25px;
+.contact-links{
+    display:flex;
+    gap:25px;
 }
 
-.contact-links a {
-    color: #999;
-    transition: .3s;
+.contact-links a{
+    color:#999;
 }
 
-.contact-links a:hover {
-    color: white;
+.contact-links a:hover{
+    color:white;
 }
 
 /* ================= FOOTER ================= */
 
-footer {
-    border-top: 1px solid var(--border);
-    text-align: center;
-    padding: 30px;
-    color: #555;
-    font-size: 13px;
+footer{
+    border-top:1px solid var(--border);
+    text-align:center;
+    padding:30px;
+    color:#555;
+    font-size:13px;
 }
 
 /* ================= ANIMATION ================= */
 
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: 1s;
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s;
 }
 
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-@keyframes fadeUp {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
     }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
-
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:850px) {
+@media(max-width:850px){
 
-    .nav-links {
-        display: none;
+    .nav-links{
+        display:none;
 
-        position: absolute;
-        top: 75px;
-        left: 0;
+        position:absolute;
+        top:75px;
+        left:0;
 
-        width: 100%;
+        width:100%;
+        padding:25px;
 
-        padding: 25px;
+        background:#080808;
 
-        background: #080808;
-
-        flex-direction: column;
-        gap: 20px;
+        flex-direction:column;
+        gap:20px;
     }
 
-    .nav-links.active {
-        display: flex;
+    .nav-links.active{
+        display:flex;
     }
 
-    .menu {
-        display: block;
+    .menu{
+        display:block;
     }
 
-    .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
     }
 
-    .profile-area {
-        order: -1;
+    .profile-area{
+        order:-1;
     }
 
-    .description {
-        margin-left: auto;
-        margin-right: auto;
+    .description{
+        margin:auto;
+        margin-bottom:30px;
     }
 
-    .buttons {
-        justify-content: center;
+    .buttons{
+        justify-content:center;
     }
 
-    .profile-frame {
-        width: 290px;
-        height: 380px;
+    .profile-frame{
+        width:290px;
+        height:380px;
     }
 
-    .about {
-        grid-template-columns: 1fr;
+    .photo-controls{
+        width:290px;
     }
 
-    .skills {
-        grid-template-columns: 1fr 1fr;
+    .about{
+        grid-template-columns:1fr;
     }
 
-    .interests {
-        grid-template-columns: 1fr 1fr;
+    .skills{
+        grid-template-columns:1fr 1fr;
     }
 
-    .projects {
-        grid-template-columns: 1fr;
+    .interests{
+        grid-template-columns:1fr 1fr;
     }
 
-    .contact {
-        flex-direction: column;
-        align-items: flex-start;
+    .projects{
+        grid-template-columns:1fr;
     }
 
+    .contact{
+        flex-direction:column;
+        align-items:flex-start;
+    }
 }
 
-@media(max-width:500px) {
+@media(max-width:500px){
 
-    section {
-        padding: 80px 20px;
+    section{
+        padding:80px 20px;
     }
 
-    .hero {
-        padding-left: 20px;
-        padding-right: 20px;
+    .hero{
+        padding-left:20px;
+        padding-right:20px;
     }
 
-    .hero h1 {
-        font-size: 62px;
+    .hero h1{
+        font-size:62px;
     }
 
-    .section-title {
-        font-size: 40px;
+    .section-title{
+        font-size:40px;
     }
 
     .skills,
-    .interests {
-        grid-template-columns: 1fr;
+    .interests{
+        grid-template-columns:1fr;
     }
 
-    .contact-links {
-        flex-direction: column;
-        gap: 10px;
+    .contact-links{
+        flex-direction:column;
+        gap:10px;
     }
 
 }
 </style>
 </head>
-
 
 <body>
 
@@ -644,14 +716,12 @@ FARAN<span>DZOLLA</span>
 </a>
 
 <ul class="nav-links" id="navLinks">
-
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#journey">Journey</a></li>
 <li><a href="#contact">Contact</a></li>
-
 </ul>
 
 <div class="menu" id="menu">
@@ -700,14 +770,155 @@ View Projects
 </div>
 
 
-<!-- FOTO PROFIL -->
+<!-- ================= PHOTO ================= -->
 
 <div class="profile-area">
 
 <div class="profile-frame">
 
-<!-- FOTO KAMU -->
-<img src="1000582382.jpg" alt="Foto Profil Farandzolla">
+<img
+id="profileImage"
+src="1000582382.jpg"
+alt="Foto Profil Farandzolla">
+
+</div>
+
+
+<!-- ================= PHOTO EDITOR ================= -->
+
+<div class="photo-controls">
+
+<label for="photoUpload" class="upload-btn">
+＋ Ganti Foto Profil
+</label>
+
+<input
+type="file"
+id="photoUpload"
+accept="image/*">
+
+
+<div class="filter-title">
+FILTER
+</div>
+
+<div class="filters">
+
+<button class="filter-btn active" data-filter="none">
+Original
+</button>
+
+<button class="filter-btn" data-filter="grayscale">
+Noir
+</button>
+
+<button class="filter-btn" data-filter="vintage">
+Vintage
+</button>
+
+<button class="filter-btn" data-filter="contrast">
+Contrast
+</button>
+
+<button class="filter-btn" data-filter="bright">
+Bright
+</button>
+
+<button class="filter-btn" data-filter="warm">
+Warm
+</button>
+
+<button class="filter-btn" data-filter="cool">
+Cool
+</button>
+
+<button class="filter-btn" data-filter="soft">
+Soft
+</button>
+
+</div>
+
+
+<div class="filter-title">
+ADJUSTMENT
+</div>
+
+<div class="adjustments">
+
+<div class="slider-row">
+
+<div class="slider-info">
+<span>Brightness</span>
+<span id="brightnessValue">100%</span>
+</div>
+
+<input
+type="range"
+id="brightness"
+min="50"
+max="150"
+value="100">
+
+</div>
+
+
+<div class="slider-row">
+
+<div class="slider-info">
+<span>Contrast</span>
+<span id="contrastValue">100%</span>
+</div>
+
+<input
+type="range"
+id="contrast"
+min="50"
+max="180"
+value="100">
+
+</div>
+
+
+<div class="slider-row">
+
+<div class="slider-info">
+<span>Saturation</span>
+<span id="saturationValue">100%</span>
+</div>
+
+<input
+type="range"
+id="saturation"
+min="0"
+max="180"
+value="100">
+
+</div>
+
+
+<div class="slider-row">
+
+<div class="slider-info">
+<span>Blur</span>
+<span id="blurValue">0px</span>
+</div>
+
+<input
+type="range"
+id="blur"
+min="0"
+max="5"
+step=".1"
+value="0">
+
+</div>
+
+</div>
+
+
+<button class="reset-btn" id="resetPhoto">
+Reset Foto
+</button>
 
 </div>
 
@@ -731,7 +942,6 @@ About Me
 <div class="about">
 
 <p class="about-text">
-
 Saya adalah seorang pelajar yang memiliki ketertarikan
 pada dunia teknologi dan kreativitas. Saya senang
 mempelajari pembuatan website menggunakan HTML,
@@ -740,9 +950,7 @@ baru.
 
 Selain teknologi, saya juga memiliki minat dalam
 olahraga, khususnya bersepeda.
-
 </p>
-
 
 <div class="info">
 
@@ -876,54 +1084,27 @@ Selected Projects
 <div class="projects">
 
 <div class="project">
-
 <span class="project-number">01</span>
-
 <h3>CycleHub</h3>
-
-<p>
-Website bertema dunia sepeda dengan desain modern.
-</p>
-
+<p>Website bertema dunia sepeda dengan desain modern.</p>
 </div>
 
-
 <div class="project">
-
 <span class="project-number">02</span>
-
 <h3>Bentang Jawa</h3>
-
-<p>
-Website informasi dan visualisasi event Bentang Jawa.
-</p>
-
+<p>Website informasi dan visualisasi event Bentang Jawa.</p>
 </div>
 
-
 <div class="project">
-
 <span class="project-number">03</span>
-
 <h3>IQ Test</h3>
-
-<p>
-Website interaktif untuk tes IQ dan minat bakat.
-</p>
-
+<p>Website interaktif untuk tes IQ dan minat bakat.</p>
 </div>
 
-
 <div class="project">
-
 <span class="project-number">04</span>
-
 <h3>Explore Dufan</h3>
-
-<p>
-Project digital mengenai Dunia Fantasi.
-</p>
-
+<p>Project digital mengenai Dunia Fantasi.</p>
 </div>
 
 </div>
@@ -946,57 +1127,27 @@ My Journey
 <div class="timeline">
 
 <div class="timeline-item">
-
 <span>EARLIER</span>
-
 <h3>Junior High School</h3>
-
-<p>
-Mulai mengenal berbagai kegiatan sekolah
-dan pengalaman organisasi.
-</p>
-
+<p>Mulai mengenal berbagai kegiatan sekolah dan organisasi.</p>
 </div>
 
-
 <div class="timeline-item">
-
 <span>NOW</span>
-
 <h3>High School — X-F</h3>
-
-<p>
-Mengembangkan kemampuan dan mencoba
-berbagai project kreatif.
-</p>
-
+<p>Mengembangkan kemampuan dan mencoba berbagai project kreatif.</p>
 </div>
 
-
 <div class="timeline-item">
-
 <span>DEVELOPMENT</span>
-
 <h3>Web Development</h3>
-
-<p>
-Mempelajari HTML, CSS, dan JavaScript
-untuk membuat website.
-</p>
-
+<p>Mempelajari HTML, CSS, dan JavaScript.</p>
 </div>
 
-
 <div class="timeline-item">
-
 <span>FUTURE</span>
-
 <h3>Keep Moving Forward</h3>
-
-<p>
-Terus belajar, berkarya, dan berkembang.
-</p>
-
+<p>Terus belajar, berkarya, dan berkembang.</p>
 </div>
 
 </div>
@@ -1022,8 +1173,7 @@ Keep Creating.
 <p>
 Saya ingin terus mengembangkan kemampuan
 di bidang teknologi dan web development
-sekaligus mengejar passion saya di dunia
-bersepeda.
+sekaligus mengejar passion saya di dunia bersepeda.
 </p>
 
 </div>
@@ -1046,30 +1196,14 @@ Let's Connect
 <div class="contact">
 
 <div>
-
 <h3>Farandzolla.</h3>
-
-<p>
-Feel free to connect with me.
-</p>
-
+<p>Feel free to connect with me.</p>
 </div>
 
-
 <div class="contact-links">
-
-<a href="#" target="_blank">
-Instagram
-</a>
-
-<a href="#" target="_blank">
-GitHub
-</a>
-
-<a href="mailto:email@example.com">
-Email
-</a>
-
+<a href="#" target="_blank">Instagram</a>
+<a href="#" target="_blank">GitHub</a>
+<a href="mailto:email@example.com">Email</a>
 </div>
 
 </div>
@@ -1078,10 +1212,7 @@ Email
 
 
 <footer>
-
-© <span id="year"></span> Farandzolla.
-All Rights Reserved.
-
+© <span id="year"></span> Farandzolla. All Rights Reserved.
 </footer>
 
 
@@ -1092,21 +1223,14 @@ All Rights Reserved.
 const menu = document.getElementById("menu");
 const navLinks = document.getElementById("navLinks");
 
-menu.addEventListener("click", () => {
-
+menu.addEventListener("click",()=>{
     navLinks.classList.toggle("active");
-
 });
 
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
         navLinks.classList.remove("active");
-
     });
-
 });
 
 
@@ -1125,56 +1249,285 @@ let wordIndex = 0;
 let charIndex = 0;
 let deleting = false;
 
-
-function typeEffect() {
+function typeEffect(){
 
     const word = words[wordIndex];
 
-    if (!deleting) {
+    if(!deleting){
 
         typing.textContent =
-            word.substring(0, charIndex + 1);
+            word.substring(0,charIndex+1);
 
         charIndex++;
 
-        if (charIndex === word.length) {
+        if(charIndex === word.length){
 
             deleting = true;
 
-            setTimeout(typeEffect, 1500);
+            setTimeout(typeEffect,1500);
 
             return;
         }
 
-    } else {
+    }else{
 
         typing.textContent =
-            word.substring(0, charIndex - 1);
+            word.substring(0,charIndex-1);
 
         charIndex--;
 
-        if (charIndex === 0) {
+        if(charIndex === 0){
 
             deleting = false;
 
             wordIndex++;
 
-            if (wordIndex >= words.length) {
+            if(wordIndex >= words.length){
                 wordIndex = 0;
             }
-
         }
-
     }
 
     setTimeout(
         typeEffect,
         deleting ? 60 : 100
     );
-
 }
 
 typeEffect();
+
+
+/* ================= PHOTO EDITOR ================= */
+
+const image = document.getElementById("profileImage");
+const upload = document.getElementById("photoUpload");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const brightness =
+    document.getElementById("brightness");
+
+const contrast =
+    document.getElementById("contrast");
+
+const saturation =
+    document.getElementById("saturation");
+
+const blur =
+    document.getElementById("blur");
+
+
+const brightnessValue =
+    document.getElementById("brightnessValue");
+
+const contrastValue =
+    document.getElementById("contrastValue");
+
+const saturationValue =
+    document.getElementById("saturationValue");
+
+const blurValue =
+    document.getElementById("blurValue");
+
+
+let currentFilter = "";
+
+
+/* ================= UPLOAD FOTO ================= */
+
+upload.addEventListener("change",function(){
+
+    const file = this.files[0];
+
+    if(!file) return;
+
+    if(!file.type.startsWith("image/")){
+        alert("Silakan pilih file gambar.");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(event){
+
+        image.src = event.target.result;
+
+        localStorage.setItem(
+            "farandzollaProfile",
+            event.target.result
+        );
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/* ================= LOAD FOTO ================= */
+
+const savedPhoto =
+    localStorage.getItem("farandzollaProfile");
+
+if(savedPhoto){
+    image.src = savedPhoto;
+}
+
+
+/* ================= FILTER ================= */
+
+filterButtons.forEach(button=>{
+
+    button.addEventListener("click",()=>{
+
+        filterButtons.forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        currentFilter =
+            button.dataset.filter;
+
+        applyFilter();
+
+    });
+
+});
+
+
+function applyFilter(){
+
+    let brightnessValueNum =
+        brightness.value;
+
+    let contrastValueNum =
+        contrast.value;
+
+    let saturationValueNum =
+        saturation.value;
+
+    let blurValueNum =
+        blur.value;
+
+
+    let filter = `
+        brightness(${brightnessValueNum}%)
+        contrast(${contrastValueNum}%)
+        saturate(${saturationValueNum}%)
+        blur(${blurValueNum}px)
+    `;
+
+
+    switch(currentFilter){
+
+        case "grayscale":
+            filter += " grayscale(100%)";
+            break;
+
+        case "vintage":
+            filter += " sepia(55%) contrast(110%)";
+            break;
+
+        case "contrast":
+            filter += " contrast(150%) grayscale(20%)";
+            break;
+
+        case "bright":
+            filter += " brightness(125%)";
+            break;
+
+        case "warm":
+            filter += " sepia(35%) saturate(130%)";
+            break;
+
+        case "cool":
+            filter += " hue-rotate(180deg) saturate(90%)";
+            break;
+
+        case "soft":
+            filter += " brightness(110%) contrast(85%) saturate(80%)";
+            break;
+
+        case "none":
+        default:
+            break;
+    }
+
+    image.style.filter = filter;
+}
+
+
+/* ================= SLIDERS ================= */
+
+brightness.addEventListener("input",()=>{
+
+    brightnessValue.textContent =
+        brightness.value + "%";
+
+    applyFilter();
+
+});
+
+
+contrast.addEventListener("input",()=>{
+
+    contrastValue.textContent =
+        contrast.value + "%";
+
+    applyFilter();
+
+});
+
+
+saturation.addEventListener("input",()=>{
+
+    saturationValue.textContent =
+        saturation.value + "%";
+
+    applyFilter();
+
+});
+
+
+blur.addEventListener("input",()=>{
+
+    blurValue.textContent =
+        blur.value + "px";
+
+    applyFilter();
+
+});
+
+
+/* ================= RESET ================= */
+
+document
+.getElementById("resetPhoto")
+.addEventListener("click",()=>{
+
+    currentFilter = "";
+
+    brightness.value = 100;
+    contrast.value = 100;
+    saturation.value = 100;
+    blur.value = 0;
+
+    brightnessValue.textContent = "100%";
+    contrastValue.textContent = "100%";
+    saturationValue.textContent = "100%";
+    blurValue.textContent = "0px";
+
+    filterButtons.forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+    filterButtons[0].classList.add("active");
+
+    image.style.filter = "none";
+
+});
 
 
 /* ================= SCROLL REVEAL ================= */
@@ -1182,15 +1535,14 @@ typeEffect();
 const revealElements =
     document.querySelectorAll(".reveal");
 
+function revealOnScroll(){
 
-function revealOnScroll() {
-
-    revealElements.forEach(element => {
+    revealElements.forEach(element=>{
 
         const position =
             element.getBoundingClientRect().top;
 
-        if (position < window.innerHeight - 100) {
+        if(position < window.innerHeight-100){
 
             element.classList.add("show");
 
@@ -1216,4 +1568,4 @@ document.getElementById("year").textContent =
 </script>
 
 </body>
-</html>
+    </html>
