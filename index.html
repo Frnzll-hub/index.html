@@ -1,1189 +1,1219 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Farandzolla | Personal Portfolio</title>
-
-    <style>
-        /* =========================
-           RESET
-        ========================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --black: #050505;
-            --dark: #0d0d0d;
-            --gray: #171717;
-            --light-gray: #a0a0a0;
-            --white: #ffffff;
-            --border: rgba(255,255,255,0.12);
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* =========================
-           NAVBAR
-        ========================= */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(5,5,5,0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav {
-            max-width: 1200px;
-            height: 75px;
-            margin: auto;
-            padding: 0 30px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: #888;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #aaa;
-            font-size: 14px;
-            transition: .3s;
-        }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
-        .menu-btn {
-            display: none;
-            font-size: 25px;
-            cursor: pointer;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-        .hero {
-            min-height: 100vh;
-            max-width: 1200px;
-            margin: auto;
-            padding: 130px 30px 80px;
-
-            display: grid;
-            grid-template-columns: 1.1fr .9fr;
-            align-items: center;
-            gap: 80px;
-        }
-
-        .hero-text {
-            animation: fadeUp 1s ease;
-        }
-
-        .small-title {
-            color: #999;
-            font-size: 14px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: clamp(55px, 8vw, 105px);
-            line-height: .9;
-            letter-spacing: -5px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: #777;
-        }
-
-        .typing {
-            font-size: 20px;
-            color: #ccc;
-            min-height: 32px;
-            margin-bottom: 25px;
-        }
-
-        .hero-description {
-            max-width: 560px;
-            color: #999;
-            font-size: 16px;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 13px 24px;
-            border: 1px solid white;
-            transition: .3s;
-            font-size: 14px;
-        }
-
-        .btn.primary {
-            background: white;
-            color: black;
-        }
-
-        .btn:hover {
-            background: white;
-            color: black;
-            transform: translateY(-3px);
-        }
-
-        .btn.primary:hover {
-            background: transparent;
-            color: white;
-        }
-
-        /* =========================
-           PROFILE PHOTO FRAME
-        ========================= */
-        .profile-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .photo-frame {
-            position: relative;
-            width: 360px;
-            height: 460px;
-            padding: 12px;
-            border: 1px solid #555;
-        }
-
-        .photo-frame::before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            width: 80px;
-            height: 80px;
-            border-top: 3px solid white;
-            border-left: 3px solid white;
-        }
-
-        .photo-frame::after {
-            content: "";
-            position: absolute;
-            right: -15px;
-            bottom: -15px;
-            width: 80px;
-            height: 80px;
-            border-right: 3px solid white;
-            border-bottom: 3px solid white;
-        }
-
-        .photo-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            display: block;
-            transition: .5s;
-        }
-
-        .photo-frame:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.02);
-        }
-
-        /* =========================
-           GENERAL SECTION
-        ========================= */
-        section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 110px 30px;
-        }
-
-        .section-title {
-            margin-bottom: 50px;
-        }
-
-        .section-number {
-            color: #666;
-            font-size: 13px;
-            letter-spacing: 3px;
-        }
-
-        .section-title h2 {
-            font-size: 50px;
-            letter-spacing: -2px;
-        }
-
-        .section-title p {
-            color: #777;
-            max-width: 600px;
-            margin-top: 10px;
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .about-text {
-            color: #aaa;
-            font-size: 17px;
-        }
-
-        .info-box {
-            border-top: 1px solid var(--border);
-        }
-
-        .info {
-            display: flex;
-            justify-content: space-between;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .info span:first-child {
-            color: #666;
-        }
-
-        /* =========================
-           SKILLS
-        ========================= */
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: var(--dark);
-            border: 1px solid var(--border);
-            padding: 30px;
-            transition: .3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #777;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: #777;
-        }
-
-        /* =========================
-           INTEREST
-        ========================= */
-        .interest-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .interest {
-            min-height: 180px;
-            padding: 25px;
-            background: #0d0d0d;
-            border: 1px solid var(--border);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            transition: .3s;
-        }
-
-        .interest:hover {
-            background: white;
-            color: black;
-            transform: translateY(-5px);
-        }
-
-        .interest h3 {
-            font-size: 22px;
-        }
-
-        .interest p {
-            color: #777;
-            margin-top: 5px;
-        }
-
-        .interest:hover p {
-            color: #333;
-        }
-
-        /* =========================
-           PROJECTS
-        ========================= */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .project {
-            min-height: 260px;
-            padding: 30px;
-            border: 1px solid var(--border);
-            background: linear-gradient(145deg, #111, #080808);
-
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-
-            transition: .4s;
-        }
-
-        .project:hover {
-            transform: scale(1.02);
-            border-color: #777;
-        }
-
-        .project-number {
-            color: #555;
-            margin-bottom: auto;
-        }
-
-        .project h3 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .project p {
-            color: #777;
-        }
-
-        /* =========================
-           JOURNEY
-        ========================= */
-        .timeline {
-            border-left: 1px solid #444;
-            padding-left: 35px;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 45px;
-        }
-
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            left: -41px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 50%;
-        }
-
-        .timeline-item span {
-            color: #666;
-            font-size: 13px;
-        }
-
-        .timeline-item h3 {
-            font-size: 25px;
-            margin: 5px 0;
-        }
-
-        .timeline-item p {
-            color: #777;
-        }
-
-        /* =========================
-           GOALS
-        ========================= */
-        .goal {
-            padding: 60px;
-            border: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .goal h2 {
-            font-size: clamp(35px, 5vw, 65px);
-            letter-spacing: -2px;
-        }
-
-        .goal p {
-            color: #777;
-            max-width: 700px;
-            margin: 20px auto 0;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-        .contact-box {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            padding: 40px;
-            border: 1px solid var(--border);
-        }
-
-        .contact-box h3 {
-            font-size: 30px;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 20px;
-            color: #aaa;
-        }
-
-        .contact-links a:hover {
-            color: white;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 30px;
-            text-align: center;
-            color: #555;
-            font-size: 13px;
-        }
-
-        /* =========================
-           ANIMATION
-        ========================= */
-        .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition: 1s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-        @media (max-width: 850px) {
-
-            .nav-links {
-                position: absolute;
-                top: 75px;
-                left: 0;
-                width: 100%;
-                padding: 25px;
-
-                background: #080808;
-
-                flex-direction: column;
-                gap: 20px;
-
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .profile-container {
-                order: -1;
-            }
-
-            .photo-frame {
-                width: 280px;
-                height: 360px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .interest-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-box {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            nav {
-                padding: 0 20px;
-            }
-
-            section {
-                padding: 80px 20px;
-            }
-
-            .hero {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            .hero h1 {
-                font-size: 60px;
-            }
-
-            .section-title h2 {
-                font-size: 40px;
-            }
-
-            .skills,
-            .interest-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .goal {
-                padding: 35px 20px;
-            }
-
-            .contact-box {
-                padding: 30px 20px;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Farandzolla | Personal Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --black: #050505;
+    --dark: #0d0d0d;
+    --gray: #151515;
+    --gray2: #777;
+    --white: #fff;
+    --border: rgba(255,255,255,.13);
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(5,5,5,.82);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    max-width: 1200px;
+    height: 75px;
+    margin: auto;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #777;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.menu {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    padding: 130px 30px 80px;
+
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: center;
+}
+
+.hero-text {
+    animation: fadeUp 1s ease;
+}
+
+.subtitle {
+    color: #888;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(60px, 9vw, 110px);
+    line-height: .85;
+    letter-spacing: -6px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #666;
+}
+
+.typing {
+    font-size: 21px;
+    color: #ccc;
+    min-height: 32px;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 580px;
+    color: #888;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 24px;
+    border: 1px solid white;
+    transition: .3s;
+    font-size: 14px;
+}
+
+.btn.primary {
+    background: white;
+    color: black;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+    transform: translateY(-4px);
+}
+
+.btn.primary:hover {
+    background: transparent;
+    color: white;
+}
+
+/* ================= PROFILE PHOTO ================= */
+
+.profile-area {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-frame {
+    width: 360px;
+    height: 470px;
+    position: relative;
+    padding: 10px;
+    border: 1px solid #555;
+}
+
+.profile-frame::before {
+    content: "";
+    position: absolute;
+
+    top: -18px;
+    left: -18px;
+
+    width: 90px;
+    height: 90px;
+
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+}
+
+.profile-frame::after {
+    content: "";
+    position: absolute;
+
+    right: -18px;
+    bottom: -18px;
+
+    width: 90px;
+    height: 90px;
+
+    border-right: 3px solid white;
+    border-bottom: 3px solid white;
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    display: block;
+
+    filter: grayscale(100%);
+    transition: .5s;
+}
+
+.profile-frame:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* ================= SECTION ================= */
+
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 110px 30px;
+}
+
+.section-label {
+    color: #555;
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+.section-title {
+    font-size: 52px;
+    margin: 8px 0 50px;
+    letter-spacing: -2px;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.about-text {
+    color: #999;
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+.info {
+    border-top: 1px solid var(--border);
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 17px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-row span {
+    color: #666;
+}
+
+/* ================= SKILLS ================= */
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    padding: 30px;
+
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #777;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #777;
+    line-height: 1.7;
+}
+
+/* ================= INTEREST ================= */
+
+.interests {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+}
+
+.interest {
+    height: 190px;
+    padding: 25px;
+
+    border: 1px solid var(--border);
+    background: #0b0b0b;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    transition: .35s;
+}
+
+.interest:hover {
+    background: white;
+    color: black;
+    transform: translateY(-7px);
+}
+
+.interest p {
+    color: #777;
+    margin-top: 5px;
+}
+
+.interest:hover p {
+    color: #333;
+}
+
+/* ================= PROJECT ================= */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.project {
+    min-height: 270px;
+    padding: 30px;
+
+    border: 1px solid var(--border);
+    background: linear-gradient(145deg,#111,#080808);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    transition: .35s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+    border-color: #777;
+}
+
+.project-number {
+    color: #555;
+    margin-bottom: auto;
+}
+
+.project h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.project p {
+    color: #777;
+}
+
+/* ================= JOURNEY ================= */
+
+.timeline {
+    border-left: 1px solid #444;
+    padding-left: 35px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 45px;
+}
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+    left: -41px;
+    top: 5px;
+
+    width: 10px;
+    height: 10px;
+
+    background: white;
+    border-radius: 50%;
+}
+
+.timeline-item span {
+    color: #555;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.timeline-item h3 {
+    font-size: 25px;
+    margin: 7px 0;
+}
+
+.timeline-item p {
+    color: #777;
+}
+
+/* ================= GOAL ================= */
+
+.goal {
+    text-align: center;
+    padding: 70px 30px;
+    border: 1px solid var(--border);
+}
+
+.goal h2 {
+    font-size: clamp(40px,6vw,70px);
+    line-height: 1;
+    margin: 20px 0;
+}
+
+.goal p {
+    color: #777;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* ================= CONTACT ================= */
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 40px;
+
+    border: 1px solid var(--border);
+}
+
+.contact h3 {
+    font-size: 30px;
+}
+
+.contact p {
+    color: #777;
+}
+
+.contact-links {
+    display: flex;
+    gap: 25px;
+}
+
+.contact-links a {
+    color: #999;
+    transition: .3s;
+}
+
+.contact-links a:hover {
+    color: white;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 30px;
+    color: #555;
+    font-size: 13px;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: 1s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px) {
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        background: #080808;
+
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-area {
+        order: -1;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .profile-frame {
+        width: 290px;
+        height: 380px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .skills {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .interests {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+@media(max-width:500px) {
+
+    section {
+        padding: 80px 20px;
+    }
+
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero h1 {
+        font-size: 62px;
+    }
+
+    .section-title {
+        font-size: 40px;
+    }
+
+    .skills,
+    .interests {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+}
+</style>
 </head>
+
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+<!-- ================= NAVBAR ================= -->
 
-    <header>
-        <nav>
+<header>
 
-            <a href="#home" class="logo">
-                FARAN<span>DZOLLA</span>
-            </a>
+<nav>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#journey">Journey</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<a href="#home" class="logo">
+FARAN<span>DZOLLA</span>
+</a>
 
-            <div class="menu-btn" id="menuBtn">
-                ☰
-            </div>
+<ul class="nav-links" id="navLinks">
 
-        </nav>
-    </header>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#journey">Journey</a></li>
+<li><a href="#contact">Contact</a></li>
 
+</ul>
 
-    <!-- =========================
-         HERO
-    ========================== -->
+<div class="menu" id="menu">
+☰
+</div>
 
-    <main>
+</nav>
 
-        <section class="hero" id="home">
+</header>
 
-            <div class="hero-text">
 
-                <div class="small-title">
-                    Personal Portfolio
-                </div>
+<!-- ================= HERO ================= -->
 
-                <h1>
-                    Farand<span>zolla.</span>
-                </h1>
+<section class="hero" id="home">
 
-                <div class="typing" id="typing"></div>
+<div class="hero-text">
 
-                <p class="hero-description">
-                    Halo, saya Farandzolla. Seorang pelajar yang tertarik
-                    pada teknologi, web development, desain, dan dunia
-                    bersepeda.
-                </p>
+<div class="subtitle">
+PERSONAL PORTFOLIO
+</div>
 
-                <div class="buttons">
-                    <a href="#about" class="btn primary">
-                        Explore My Profile
-                    </a>
+<h1>
+Farand<span>zolla.</span>
+</h1>
 
-                    <a href="#projects" class="btn">
-                        View Projects
-                    </a>
-                </div>
+<div class="typing" id="typing"></div>
 
-            </div>
+<p class="description">
+Halo, saya Farandzolla. Seorang pelajar yang tertarik
+dengan teknologi, web development, desain, dan dunia
+bersepeda.
+</p>
 
+<div class="buttons">
 
-            <!-- FOTO PROFIL -->
+<a href="#about" class="btn primary">
+Explore My Profile
+</a>
 
-            <div class="profile-container">
+<a href="#projects" class="btn">
+View Projects
+</a>
 
-                <div class="photo-frame">
+</div>
 
-                    <!-- GANTI profile.jpg DENGAN FOTO KAMU -->
-                    <img src="profile.jpg" alt="Foto Profil Farandzolla">
+</div>
 
-                </div>
 
-            </div>
+<!-- FOTO PROFIL -->
 
-        </section>
+<div class="profile-area">
 
+<div class="profile-frame">
 
-        <!-- =========================
-             ABOUT
-        ========================== -->
+<!-- FOTO KAMU -->
+<img src="1000582382.jpg" alt="Foto Profil Farandzolla">
 
-        <section id="about" class="reveal">
+</div>
 
-            <div class="section-title">
-                <span class="section-number">01 / ABOUT</span>
-                <h2>About Me</h2>
-                <p>
-                    Sedikit tentang siapa saya dan apa yang saya sukai.
-                </p>
-            </div>
+</div>
 
-            <div class="about-grid">
+</section>
 
-                <p class="about-text">
-                    Saya adalah seorang pelajar yang memiliki ketertarikan
-                    pada dunia teknologi dan kreativitas. Saya senang
-                    mempelajari pembuatan website menggunakan HTML, CSS,
-                    dan JavaScript serta mencoba berbagai project baru.
-                    Selain teknologi, saya juga memiliki minat dalam
-                    olahraga, khususnya bersepeda.
-                </p>
-
-                <div class="info-box">
-
-                    <div class="info">
-                        <span>Nama</span>
-                        <strong>Farandzolla</strong>
-                    </div>
-
-                    <div class="info">
-                        <span>Kelas</span>
-                        <strong>X-F</strong>
-                    </div>
-
-                    <div class="info">
-                        <span>Focus</span>
-                        <strong>Web Development</strong>
-                    </div>
-
-                    <div class="info">
-                        <span>Passion</span>
-                        <strong>Cycling & Technology</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SKILLS
-        ========================== -->
-
-        <section id="skills" class="reveal">
-
-            <div class="section-title">
-                <span class="section-number">02 / SKILLS</span>
-                <h2>My Skills</h2>
-            </div>
-
-            <div class="skills">
-
-                <div class="skill-card">
-                    <h3>HTML</h3>
-                    <p>
-                        Membuat struktur website yang rapi dan semantik.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>CSS</h3>
-                    <p>
-                        Membuat tampilan website modern, responsive,
-                        dan menarik.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>JavaScript</h3>
-                    <p>
-                        Menambahkan interaksi dan fitur dinamis pada website.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Web Design</h3>
-                    <p>
-                        Merancang layout dan tampilan website yang nyaman
-                        digunakan.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Problem Solving</h3>
-                    <p>
-                        Mencari solusi dan memperbaiki berbagai masalah
-                        dalam project.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Creativity</h3>
-                    <p>
-                        Mengembangkan ide baru untuk membuat project
-                        yang berbeda.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             INTEREST
-        ========================== -->
-
-        <section class="reveal">
-
-            <div class="section-title">
-                <span class="section-number">03 / INTEREST</span>
-                <h2>My Interests</h2>
-            </div>
-
-            <div class="interest-grid">
-
-                <div class="interest">
-                    <h3>Cycling</h3>
-                    <p>Exploring the world through two wheels.</p>
-                </div>
-
-                <div class="interest">
-                    <h3>Technology</h3>
-                    <p>Learning and creating with technology.</p>
-                </div>
-
-                <div class="interest">
-                    <h3>Design</h3>
-                    <p>Creating modern visual experiences.</p>
-                </div>
-
-                <div class="interest">
-                    <h3>Gaming</h3>
-                    <p>Playing games and exploring virtual worlds.</p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PROJECTS
-        ========================== -->
-
-        <section id="projects" class="reveal">
-
-            <div class="section-title">
-                <span class="section-number">04 / PROJECTS</span>
-                <h2>Selected Projects</h2>
-                <p>
-                    Beberapa project yang pernah saya buat dan kembangkan.
-                </p>
-            </div>
-
-            <div class="projects">
-
-                <div class="project">
-                    <span class="project-number">01</span>
-                    <h3>CycleHub</h3>
-                    <p>
-                        Website bertema dunia sepeda dengan desain modern.
-                    </p>
-                </div>
-
-                <div class="project">
-                    <span class="project-number">02</span>
-                    <h3>Bentang Jawa</h3>
-                    <p>
-                        Website informasi dan visualisasi event Bentang Jawa.
-                    </p>
-                </div>
-
-                <div class="project">
-                    <span class="project-number">03</span>
-                    <h3>IQ Test</h3>
-                    <p>
-                        Website interaktif untuk tes IQ dan minat bakat.
-                    </p>
-                </div>
-
-                <div class="project">
-                    <span class="project-number">04</span>
-                    <h3>Explore Dufan</h3>
-                    <p>
-                        Project digital mengenai Dunia Fantasi.
-                    </p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             JOURNEY
-        ========================== -->
-
-        <section id="journey" class="reveal">
-
-            <div class="section-title">
-                <span class="section-number">05 / JOURNEY</span>
-                <h2>My Journey</h2>
-            </div>
-
-            <div class="timeline">
-
-                <div class="timeline-item">
-                    <span>EARLIER</span>
-                    <h3>Junior High School</h3>
-                    <p>
-                        Mulai mengenal berbagai kegiatan sekolah
-                        dan pengalaman organisasi.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span>NOW</span>
-                    <h3>High School — X-F</h3>
-                    <p>
-                        Mengembangkan kemampuan dan mencoba berbagai
-                        project kreatif.
-                    </p>
-                </div>
-
-                <div class="timeline-item">
-                    <span>DEVELOPMENT</span>
-                    <h3>Web Development</h3>
-                    <p>
-                        Mempelajari HTML, CSS, dan JavaScript untuk
-                        membuat website.
-                    </p>
-                </div>
 
-                <div class="timeline-item">
-                    <span>FUTURE</span>
-                    <h3>Keep Moving Forward</h3>
-                    <p>
-                        Terus belajar, berkarya, dan mengembangkan
-                        kemampuan di masa depan.
-                    </p>
-                </div>
+<!-- ================= ABOUT ================= -->
 
-            </div>
+<section id="about" class="reveal">
 
-        </section>
+<div class="section-label">
+01 / ABOUT
+</div>
 
+<h2 class="section-title">
+About Me
+</h2>
 
-        <!-- =========================
-             GOALS
-        ========================== -->
+<div class="about">
 
-        <section class="reveal">
+<p class="about-text">
 
-            <div class="goal">
+Saya adalah seorang pelajar yang memiliki ketertarikan
+pada dunia teknologi dan kreativitas. Saya senang
+mempelajari pembuatan website menggunakan HTML,
+CSS, dan JavaScript serta mencoba berbagai project
+baru.
 
-                <span class="section-number">
-                    06 / MY GOAL
-                </span>
+Selain teknologi, saya juga memiliki minat dalam
+olahraga, khususnya bersepeda.
 
-                <h2>
-                    Keep Learning.<br>
-                    Keep Creating.
-                </h2>
+</p>
 
-                <p>
-                    Saya ingin terus mengembangkan kemampuan di bidang
-                    teknologi dan web development sekaligus mengejar
-                    passion saya di dunia bersepeda.
-                </p>
 
-            </div>
+<div class="info">
 
-        </section>
+<div class="info-row">
+<span>Nama</span>
+<strong>Farandzolla</strong>
+</div>
 
+<div class="info-row">
+<span>Kelas</span>
+<strong>X-F</strong>
+</div>
 
-        <!-- =========================
-             CONTACT
-        ========================== -->
+<div class="info-row">
+<span>Focus</span>
+<strong>Web Development</strong>
+</div>
 
-        <section id="contact" class="reveal">
+<div class="info-row">
+<span>Passion</span>
+<strong>Cycling & Technology</strong>
+</div>
 
-            <div class="section-title">
-                <span class="section-number">07 / CONTACT</span>
-                <h2>Let's Connect</h2>
-            </div>
+</div>
 
-            <div class="contact-box">
+</div>
 
-                <div>
-                    <h3>Farandzolla.</h3>
-                    <p style="color:#777;">
-                        Feel free to connect with me.
-                    </p>
-                </div>
+</section>
 
-                <div class="contact-links">
 
-                    <a href="#" target="_blank">
-                        Instagram
-                    </a>
+<!-- ================= SKILLS ================= -->
 
-                    <a href="#" target="_blank">
-                        GitHub
-                    </a>
+<section id="skills" class="reveal">
 
-                    <a href="mailto:emailkamu@example.com">
-                        Email
-                    </a>
+<div class="section-label">
+02 / SKILLS
+</div>
 
-                </div>
+<h2 class="section-title">
+My Skills
+</h2>
 
-            </div>
+<div class="skills">
 
-        </section>
+<div class="card">
+<h3>HTML</h3>
+<p>Membangun struktur website yang rapi.</p>
+</div>
 
-    </main>
+<div class="card">
+<h3>CSS</h3>
+<p>Membuat tampilan website modern dan responsive.</p>
+</div>
 
+<div class="card">
+<h3>JavaScript</h3>
+<p>Membuat website menjadi interaktif.</p>
+</div>
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+<div class="card">
+<h3>Web Design</h3>
+<p>Merancang tampilan website yang menarik.</p>
+</div>
 
-    <footer>
-        © <span id="year"></span> Farandzolla. All Rights Reserved.
-    </footer>
+<div class="card">
+<h3>Creativity</h3>
+<p>Mengembangkan ide dan konsep baru.</p>
+</div>
 
+<div class="card">
+<h3>Problem Solving</h3>
+<p>Mencari solusi untuk berbagai masalah project.</p>
+</div>
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
+</div>
 
-    <script>
+</section>
 
-        /* =========================
-           MOBILE MENU
-        ========================== */
 
-        const menuBtn = document.getElementById("menuBtn");
-        const navLinks = document.getElementById("navLinks");
+<!-- ================= INTEREST ================= -->
 
-        menuBtn.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-        });
+<section class="reveal">
 
-        document.querySelectorAll(".nav-links a").forEach(link => {
-            link.addEventListener("click", () => {
-                navLinks.classList.remove("active");
-            });
-        });
+<div class="section-label">
+03 / INTEREST
+</div>
 
+<h2 class="section-title">
+My Interests
+</h2>
 
-        /* =========================
-           TYPING EFFECT
-        ========================== */
+<div class="interests">
 
-        const typingElement = document.getElementById("typing");
+<div class="interest">
+<h3>🚴 Cycling</h3>
+<p>Exploring the world through two wheels.</p>
+</div>
 
-        const words = [
-            "Student.",
-            "Web Enthusiast.",
-            "Cycling Enthusiast.",
-            "Creative Learner."
-        ];
+<div class="interest">
+<h3>💻 Technology</h3>
+<p>Learning and creating with technology.</p>
+</div>
 
-        let wordIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
+<div class="interest">
+<h3>🎨 Design</h3>
+<p>Creating modern visual experiences.</p>
+</div>
 
-        function typingEffect() {
+<div class="interest">
+<h3>🎮 Gaming</h3>
+<p>Exploring virtual worlds.</p>
+</div>
 
-            const currentWord = words[wordIndex];
+</div>
 
-            if (!deleting) {
+</section>
 
-                typingElement.textContent =
-                    currentWord.substring(0, charIndex + 1);
 
-                charIndex++;
+<!-- ================= PROJECTS ================= -->
 
-                if (charIndex === currentWord.length) {
-                    deleting = true;
+<section id="projects" class="reveal">
 
-                    setTimeout(typingEffect, 1500);
-                    return;
-                }
+<div class="section-label">
+04 / PROJECTS
+</div>
 
-            } else {
+<h2 class="section-title">
+Selected Projects
+</h2>
 
-                typingElement.textContent =
-                    currentWord.substring(0, charIndex - 1);
+<div class="projects">
 
-                charIndex--;
+<div class="project">
 
-                if (charIndex === 0) {
-                    deleting = false;
-                    wordIndex++;
+<span class="project-number">01</span>
 
-                    if (wordIndex >= words.length) {
-                        wordIndex = 0;
-                    }
-                }
+<h3>CycleHub</h3>
+
+<p>
+Website bertema dunia sepeda dengan desain modern.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<span class="project-number">02</span>
+
+<h3>Bentang Jawa</h3>
+
+<p>
+Website informasi dan visualisasi event Bentang Jawa.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<span class="project-number">03</span>
+
+<h3>IQ Test</h3>
+
+<p>
+Website interaktif untuk tes IQ dan minat bakat.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<span class="project-number">04</span>
+
+<h3>Explore Dufan</h3>
+
+<p>
+Project digital mengenai Dunia Fantasi.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= JOURNEY ================= -->
+
+<section id="journey" class="reveal">
+
+<div class="section-label">
+05 / JOURNEY
+</div>
+
+<h2 class="section-title">
+My Journey
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<span>EARLIER</span>
+
+<h3>Junior High School</h3>
+
+<p>
+Mulai mengenal berbagai kegiatan sekolah
+dan pengalaman organisasi.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<span>NOW</span>
+
+<h3>High School — X-F</h3>
+
+<p>
+Mengembangkan kemampuan dan mencoba
+berbagai project kreatif.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<span>DEVELOPMENT</span>
+
+<h3>Web Development</h3>
+
+<p>
+Mempelajari HTML, CSS, dan JavaScript
+untuk membuat website.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<span>FUTURE</span>
+
+<h3>Keep Moving Forward</h3>
+
+<p>
+Terus belajar, berkarya, dan berkembang.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= GOAL ================= -->
+
+<section class="reveal">
+
+<div class="goal">
+
+<div class="section-label">
+06 / MY GOAL
+</div>
+
+<h2>
+Keep Learning.<br>
+Keep Creating.
+</h2>
+
+<p>
+Saya ingin terus mengembangkan kemampuan
+di bidang teknologi dan web development
+sekaligus mengejar passion saya di dunia
+bersepeda.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="reveal">
+
+<div class="section-label">
+07 / CONTACT
+</div>
+
+<h2 class="section-title">
+Let's Connect
+</h2>
+
+<div class="contact">
+
+<div>
+
+<h3>Farandzolla.</h3>
+
+<p>
+Feel free to connect with me.
+</p>
+
+</div>
+
+
+<div class="contact-links">
+
+<a href="#" target="_blank">
+Instagram
+</a>
+
+<a href="#" target="_blank">
+GitHub
+</a>
+
+<a href="mailto:email@example.com">
+Email
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© <span id="year"></span> Farandzolla.
+All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+/* ================= MENU ================= */
+
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+
+menu.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* ================= TYPING ================= */
+
+const typing = document.getElementById("typing");
+
+const words = [
+    "Student.",
+    "Web Developer.",
+    "Cycling Enthusiast.",
+    "Creative Learner."
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+
+function typeEffect() {
+
+    const word = words[wordIndex];
+
+    if (!deleting) {
+
+        typing.textContent =
+            word.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === word.length) {
+
+            deleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+        }
+
+    } else {
+
+        typing.textContent =
+            word.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+
+            deleting = false;
+
+            wordIndex++;
+
+            if (wordIndex >= words.length) {
+                wordIndex = 0;
             }
 
-            setTimeout(
-                typingEffect,
-                deleting ? 60 : 100
-            );
         }
 
-        typingEffect();
+    }
+
+    setTimeout(
+        typeEffect,
+        deleting ? 60 : 100
+    );
+
+}
+
+typeEffect();
 
 
-        /* =========================
-           SCROLL REVEAL
-        ========================== */
+/* ================= SCROLL REVEAL ================= */
 
-        const reveals = document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-        function revealOnScroll() {
 
-            const windowHeight = window.innerHeight;
+function revealOnScroll() {
 
-            reveals.forEach(element => {
+    revealElements.forEach(element => {
 
-                const elementTop =
-                    element.getBoundingClientRect().top;
+        const position =
+            element.getBoundingClientRect().top;
 
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add("active");
-                }
+        if (position < window.innerHeight - 100) {
 
-            });
+            element.classList.add("show");
+
         }
 
-        window.addEventListener("scroll", revealOnScroll);
+    });
 
-        revealOnScroll();
+}
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+revealOnScroll();
 
 
-        /* =========================
-           CURRENT YEAR
-        ========================== */
+/* ================= YEAR ================= */
 
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
-    </script>
+</script>
 
 </body>
 </html>
