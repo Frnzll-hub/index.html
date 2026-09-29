@@ -28,10 +28,8 @@ header{
     left:0;
     width:100%;
     z-index:1000;
-
-    background:rgba(5,5,5,.85);
+    background:rgba(5,5,5,.88);
     backdrop-filter:blur(15px);
-
     border-bottom:1px solid #222;
 }
 
@@ -79,7 +77,6 @@ nav ul a:hover{
     min-height:100vh;
     max-width:1200px;
     margin:auto;
-
     padding:130px 30px 80px;
 
     display:grid;
@@ -111,9 +108,7 @@ nav ul a:hover{
 .typing{
     font-size:21px;
     color:#ccc;
-
     margin:25px 0;
-
     min-height:30px;
 }
 
@@ -125,16 +120,11 @@ nav ul a:hover{
 
 .button{
     display:inline-block;
-
     margin-top:30px;
-
     padding:14px 25px;
-
     background:white;
     color:black;
-
     text-decoration:none;
-
     transition:.3s;
 }
 
@@ -150,29 +140,21 @@ nav ul a:hover{
     align-items:center;
 }
 
-/* FRAME FOTO */
-
 .profile-frame{
     width:360px;
     height:470px;
-
     padding:10px;
-
     border:1px solid #555;
-
     position:relative;
 }
 
-/* SUDUT FRAME */
+/* Frame sudut */
 
 .profile-frame::before{
     content:"";
-
     position:absolute;
-
     top:-17px;
     left:-17px;
-
     width:90px;
     height:90px;
 
@@ -182,12 +164,9 @@ nav ul a:hover{
 
 .profile-frame::after{
     content:"";
-
     position:absolute;
-
     bottom:-17px;
     right:-17px;
-
     width:90px;
     height:90px;
 
@@ -195,14 +174,12 @@ nav ul a:hover{
     border-bottom:3px solid white;
 }
 
-/* ================= FOTO IMG ================= */
+/* ================= FOTO ================= */
 
 .profile-frame img{
     width:100%;
     height:100%;
-
     display:block;
-
     object-fit:cover;
 
     filter:grayscale(100%);
@@ -210,51 +187,64 @@ nav ul a:hover{
     transition:.4s;
 }
 
-/* ================= GANTI FOTO ================= */
+/* ================= TOMBOL KAMERA ================= */
+
+#photoUpload{
+    display:none;
+}
+
+.camera-button{
+    position:absolute;
+
+    right:20px;
+    bottom:20px;
+
+    width:43px;
+    height:43px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(0,0,0,.75);
+
+    border:1px solid #777;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    opacity:0;
+
+    transition:.3s;
+}
+
+/* Muncul ketika foto disentuh */
+
+.profile-frame:hover .camera-button{
+    opacity:1;
+}
+
+.camera-button:hover{
+    background:white;
+    color:black;
+    border-color:white;
+}
+
+/* ================= FILTER ================= */
 
 .photo-editor{
     width:360px;
     margin-top:25px;
 }
 
-.upload-label{
-    display:block;
-
-    width:100%;
-
-    padding:13px;
-
-    text-align:center;
-
-    border:1px solid #444;
-
-    color:#aaa;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.upload-label:hover{
-    background:white;
-    color:black;
-    border-color:white;
-}
-
-#photoUpload{
-    display:none;
-}
-
-/* ================= FILTER ================= */
-
 .filter-title{
-    margin-top:18px;
-    margin-bottom:8px;
-
     color:#555;
-
     font-size:10px;
     letter-spacing:2px;
+    margin-bottom:8px;
 }
 
 .filters{
@@ -284,26 +274,22 @@ nav ul a:hover{
     color:black;
 }
 
-/* ================= SECTIONS ================= */
+/* ================= SECTION ================= */
 
 section:not(.hero){
     max-width:1200px;
     margin:auto;
-
     padding:110px 30px;
 }
 
 .section-label{
     color:#555;
-
     font-size:12px;
-
     letter-spacing:4px;
 }
 
 .section-title{
     font-size:52px;
-
     margin-top:10px;
     margin-bottom:45px;
 }
@@ -312,17 +298,13 @@ section:not(.hero){
 
 .about{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:70px;
 }
 
 .about-text{
     color:#999;
-
     font-size:17px;
-
     line-height:1.9;
 }
 
@@ -332,7 +314,6 @@ section:not(.hero){
 
 .info-row{
     padding:17px 0;
-
     border-bottom:1px solid #222;
 
     display:flex;
@@ -347,59 +328,45 @@ section:not(.hero){
 
 .skills{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:20px;
 }
 
 .card{
     padding:30px;
-
     background:#0d0d0d;
-
     border:1px solid #222;
-
     transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-7px);
-
     border-color:#666;
 }
 
 .card p{
     color:#777;
-
     margin-top:10px;
-
     line-height:1.7;
 }
 
-/* ================= PROJECT ================= */
+/* ================= PROJECTS ================= */
 
 .projects{
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
 }
 
 .project{
     min-height:230px;
-
     padding:30px;
 
     background:#0d0d0d;
-
     border:1px solid #222;
 
     display:flex;
-
     flex-direction:column;
-
     justify-content:flex-end;
 
     transition:.3s;
@@ -407,15 +374,12 @@ section:not(.hero){
 
 .project:hover{
     transform:translateY(-7px);
-
     border-color:#666;
 }
 
 .project p{
     color:#777;
-
     margin-top:10px;
-
     line-height:1.6;
 }
 
@@ -423,13 +387,11 @@ section:not(.hero){
 
 .timeline{
     border-left:1px solid #444;
-
     padding-left:30px;
 }
 
 .timeline-item{
     position:relative;
-
     margin-bottom:45px;
 }
 
@@ -437,7 +399,6 @@ section:not(.hero){
     content:"";
 
     position:absolute;
-
     left:-36px;
     top:5px;
 
@@ -445,27 +406,22 @@ section:not(.hero){
     height:10px;
 
     background:white;
-
     border-radius:50%;
 }
 
 .timeline-item span{
     color:#555;
-
     font-size:11px;
-
     letter-spacing:2px;
 }
 
 .timeline-item h3{
     margin:8px 0;
-
     font-size:24px;
 }
 
 .timeline-item p{
     color:#777;
-
     line-height:1.7;
 }
 
@@ -473,33 +429,26 @@ section:not(.hero){
 
 .contact{
     padding:40px;
-
     border:1px solid #222;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:30px;
 }
 
 .contact p{
     color:#777;
-
     margin-top:8px;
 }
 
 .contact-links{
     display:flex;
-
     gap:25px;
 }
 
 .contact-links a{
     color:#888;
-
     text-decoration:none;
 }
 
@@ -511,11 +460,8 @@ section:not(.hero){
 
 footer{
     padding:30px;
-
     text-align:center;
-
     color:#555;
-
     border-top:1px solid #222;
 }
 
@@ -529,7 +475,6 @@ footer{
 
     .hero{
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
@@ -564,7 +509,6 @@ footer{
 
     .contact{
         flex-direction:column;
-
         align-items:flex-start;
     }
 }
@@ -606,7 +550,6 @@ footer{
 <!-- ================= NAVBAR ================= -->
 
 <header>
-
 <nav>
 
 <div class="logo">
@@ -623,16 +566,12 @@ FARAN<span>DZOLLA</span>
 </ul>
 
 </nav>
-
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- ================= HOME ================= -->
 
 <section class="hero" id="home">
-
-
-<!-- TEXT -->
 
 <div class="hero-text">
 
@@ -665,103 +604,90 @@ Explore My Profile
 
 <div class="profile-frame">
 
-<!-- FOTO PROFIL AWAL -->
-
 <img
-id="profileImage"
-src="1000582382.jpg"
-alt="Foto Profil Farandzolla">
+    id="profileImage"
+    src="1000582382.jpg"
+    alt="Foto Profil Farandzolla">
+
+
+<!-- IKON KAMERA -->
+
+<label
+    for="photoUpload"
+    class="camera-button"
+    title="Ganti foto">
+
+    📷
+
+</label>
 
 </div>
 
 
-<!-- ================= PHOTO EDITOR ================= -->
-
-<div class="photo-editor">
-
-<label
-for="photoUpload"
-class="upload-label">
-
-📷 Ganti Foto Profil
-
-</label>
+<!-- INPUT FOTO -->
 
 <input
-type="file"
-id="photoUpload"
-accept="image/*">
+    type="file"
+    id="photoUpload"
+    accept="image/*">
 
+
+<!-- FILTER -->
+
+<div class="photo-editor">
 
 <div class="filter-title">
 FILTER FOTO
 </div>
-
 
 <div class="filters">
 
 <button
 class="filter-btn active"
 data-filter="grayscale(100%)">
-
 Noir
-
 </button>
 
 <button
 class="filter-btn"
 data-filter="none">
-
 Original
-
 </button>
 
 <button
 class="filter-btn"
 data-filter="sepia(60%)">
-
 Vintage
-
 </button>
 
 <button
 class="filter-btn"
 data-filter="contrast(150%)">
-
 Contrast
-
 </button>
 
 <button
 class="filter-btn"
 data-filter="brightness(130%)">
-
 Bright
-
 </button>
 
 <button
 class="filter-btn"
 data-filter="sepia(30%) saturate(150%)">
-
 Warm
-
 </button>
 
 <button
 class="filter-btn"
 data-filter="hue-rotate(180deg)">
-
 Cool
-
 </button>
 
 <button
 class="filter-btn"
 data-filter="grayscale(100%) contrast(140%)">
-
 B&W
-
 </button>
 
 </div>
@@ -941,56 +867,37 @@ My Journey
 <div class="timeline">
 
 <div class="timeline-item">
-
 <span>EARLIER</span>
-
 <h3>Junior High School</h3>
-
 <p>
 Mulai mengenal berbagai kegiatan
 sekolah dan organisasi.
 </p>
-
 </div>
 
-
 <div class="timeline-item">
-
 <span>NOW</span>
-
 <h3>High School — X-F</h3>
-
 <p>
 Mengembangkan kemampuan dan mencoba
 berbagai project kreatif.
 </p>
-
 </div>
 
-
 <div class="timeline-item">
-
 <span>DEVELOPMENT</span>
-
 <h3>Web Development</h3>
-
 <p>
 Mempelajari HTML, CSS, dan JavaScript.
 </p>
-
 </div>
 
-
 <div class="timeline-item">
-
 <span>FUTURE</span>
-
 <h3>Keep Moving Forward</h3>
-
 <p>
 Terus belajar, berkarya, dan berkembang.
 </p>
-
 </div>
 
 </div>
@@ -1013,31 +920,14 @@ Let's Connect
 <div class="contact">
 
 <div>
-
-<h3>
-Farandzolla.
-</h3>
-
-<p>
-Feel free to connect with me.
-</p>
-
+<h3>Farandzolla.</h3>
+<p>Feel free to connect with me.</p>
 </div>
 
 <div class="contact-links">
-
-<a href="#">
-Instagram
-</a>
-
-<a href="#">
-GitHub
-</a>
-
-<a href="mailto:email@example.com">
-Email
-</a>
-
+<a href="#">Instagram</a>
+<a href="#">GitHub</a>
+<a href="mailto:email@example.com">Email</a>
 </div>
 
 </div>
@@ -1048,17 +938,13 @@ Email
 <!-- ================= FOOTER ================= -->
 
 <footer>
-
 © 2026 Farandzolla. All Rights Reserved.
-
 </footer>
 
 
 <script>
 
-/* ==========================================
-   TYPING EFFECT
-========================================== */
+/* ================= TYPING ================= */
 
 const typing =
 document.getElementById("typing");
@@ -1076,16 +962,12 @@ let deleting = false;
 
 function typeEffect(){
 
-    const word =
-    words[wordIndex];
+    const word = words[wordIndex];
 
     if(!deleting){
 
         typing.textContent =
-        word.substring(
-            0,
-            charIndex + 1
-        );
+        word.substring(0,charIndex + 1);
 
         charIndex++;
 
@@ -1093,10 +975,7 @@ function typeEffect(){
 
             deleting = true;
 
-            setTimeout(
-                typeEffect,
-                1200
-            );
+            setTimeout(typeEffect,1200);
 
             return;
         }
@@ -1104,10 +983,7 @@ function typeEffect(){
     }else{
 
         typing.textContent =
-        word.substring(
-            0,
-            charIndex - 1
-        );
+        word.substring(0,charIndex - 1);
 
         charIndex--;
 
@@ -1120,24 +996,19 @@ function typeEffect(){
             if(wordIndex >= words.length){
                 wordIndex = 0;
             }
-
         }
-
     }
 
     setTimeout(
         typeEffect,
         deleting ? 60 : 100
     );
-
 }
 
 typeEffect();
 
 
-/* ==========================================
-   GANTI FOTO PROFIL
-========================================== */
+/* ================= GANTI FOTO ================= */
 
 const profileImage =
 document.getElementById("profileImage");
@@ -1150,8 +1021,7 @@ photoUpload.addEventListener(
 "change",
 function(){
 
-    const file =
-    this.files[0];
+    const file = this.files[0];
 
     if(!file){
         return;
@@ -1159,28 +1029,23 @@ function(){
 
     if(!file.type.startsWith("image/")){
 
-        alert(
-            "File harus berupa gambar."
-        );
+        alert("Pilih file gambar.");
 
         return;
     }
 
-
     const reader =
     new FileReader();
-
 
     reader.onload =
     function(event){
 
-        /* GANTI FOTO DI IMG */
-
         profileImage.src =
         event.target.result;
 
-
-        /* SIMPAN FOTO */
+        /*
+        Simpan foto yang dipilih
+        */
 
         localStorage.setItem(
             "farandzollaProfile",
@@ -1189,15 +1054,12 @@ function(){
 
     };
 
-
     reader.readAsDataURL(file);
 
 });
 
 
-/* ==========================================
-   LOAD FOTO TERAKHIR
-========================================== */
+/* ================= LOAD FOTO ================= */
 
 const savedProfile =
 localStorage.getItem(
@@ -1212,37 +1074,24 @@ if(savedProfile){
 }
 
 
-/* ==========================================
-   FILTER FOTO
-========================================== */
+/* ================= FILTER ================= */
 
 const filterButtons =
 document.querySelectorAll(
     ".filter-btn"
 );
 
-
-filterButtons.forEach(
-button => {
+filterButtons.forEach(button => {
 
     button.addEventListener(
     "click",
     function(){
 
-        filterButtons.forEach(
-        btn => {
-
-            btn.classList.remove(
-                "active"
-            );
-
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
         });
 
-
-        this.classList.add(
-            "active"
-        );
-
+        this.classList.add("active");
 
         profileImage.style.filter =
         this.dataset.filter;
