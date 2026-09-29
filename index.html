@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bentang Jawa — Ride Across Java</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #f5f5f5;
+    font-family: Inter, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 24px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.85),
+        transparent
+    );
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 7% 90px;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.92),
+            rgba(0,0,0,.25)
+        ),
+        linear-gradient(
+            0deg,
+            #080808,
+            transparent 50%
+        ),
+        url("https://images.unsplash.com/photo-1502744688674-c619d1586c9e?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-small {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(70px, 13vw, 180px);
+    line-height: .8;
+    letter-spacing: -8px;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero-description {
+    max-width: 500px;
+    color: #aaa;
+    margin-top: 35px;
+    line-height: 1.7;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 25px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-4px);
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+section {
+    padding: 120px 7%;
+}
+
+.section-label {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: "Space Grotesk";
+    font-size: clamp(40px, 7vw, 90px);
+    line-height: .95;
+    letter-spacing: -4px;
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.story-text {
+    color: #999;
+    line-height: 1.9;
+    max-width: 600px;
+}
+
+.story-text strong {
+    color: white;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    margin-top: 80px;
+}
+
+.stat {
+    padding: 45px 0;
+    border-right: 1px solid #222;
+}
+
+.stat:last-child {
+    border-right: none;
+    padding-left: 45px;
+}
+
+.stat-number {
+    font-family: "Space Grotesk";
+    font-size: clamp(45px,7vw,90px);
+    font-weight: 700;
+}
+
+.stat-name {
+    color: #777;
+    letter-spacing: 3px;
+    font-size: 10px;
+    margin-top: 8px;
+}
+
+/* =========================
+   FINISHERS
+========================= */
+
+.finishers {
+    background: #ededed;
+    color: #080808;
+}
+
+.finishers .section-label {
+    color: #777;
+}
+
+.podium {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2px;
+}
+
+.rider {
+    min-height: 300px;
+    padding: 35px;
+    background: #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .4s;
+}
+
+.rider:hover {
+    background: #fff;
+    transform: translateY(-8px);
+}
+
+.position {
+    font-size: 50px;
+    font-weight: 900;
+    color: #999;
+}
+
+.rider:first-child .position {
+    color: #111;
+}
+
+.rider-name {
+    font-family: "Space Grotesk";
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.rider-time {
+    color: #777;
+    font-size: 11px;
+    margin-top: 8px;
+}
+
+/* =========================
+   MAP
+========================= */
+
+.map-wrapper {
+    margin-top: 70px;
+    border: 1px solid #252525;
+    overflow: hidden;
+    background: #111;
+}
+
+.map-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: .6s;
+}
+
+.map-wrapper:hover img {
+    transform: scale(1.015);
+}
+
+/* =========================
+   GAME
+========================= */
+
+.game-section {
+    background: #050505;
+}
+
+.game-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.game-description {
+    color: #777;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+.game-box {
+    margin-top: 60px;
+    position: relative;
+    border: 1px solid #282828;
+    background: #111;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.game-ui {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    right: 25px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.game-stat {
+    background: rgba(0,0,0,.55);
+    backdrop-filter: blur(10px);
+    padding: 12px 17px;
+    border: 1px solid #333;
+}
+
+.game-stat small {
+    display: block;
+    color: #888;
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+.game-stat strong {
+    font-size: 20px;
+}
+
+.game-start {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.48);
+    backdrop-filter: blur(3px);
+    z-index: 10;
+}
+
+.start-card {
+    text-align: center;
+}
+
+.start-card h3 {
+    font-family: "Space Grotesk";
+    font-size: 45px;
+    letter-spacing: -2px;
+}
+
+.start-card p {
+    color: #aaa;
+    margin: 10px 0 25px;
+    font-size: 13px;
+}
+
+.start-btn {
+    border: none;
+    background: white;
+    color: black;
+    padding: 15px 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.mobile-control {
+    display: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 80px 7% 40px;
+    border-top: 1px solid #222;
+}
+
+.footer-logo {
+    font-family: "Space Grotesk";
+    font-size: clamp(60px,12vw,160px);
+    font-weight: 900;
+    letter-spacing: -8px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    font-size: 10px;
+    margin-top: 40px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    .hero {
+        padding: 0 20px 60px;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+        letter-spacing: -4px;
+    }
+
+    .story {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        border-right: none;
+        border-bottom: 1px solid #222;
+    }
+
+    .stat:last-child {
+        padding-left: 0;
+        border-bottom: none;
+    }
+
+    .podium {
+        grid-template-columns: 1fr;
+    }
+
+    .game-heading {
+        display: block;
+    }
+
+    .game-description {
+        margin-top: 20px;
+    }
+
+    .game-box {
+        margin-top: 30px;
+    }
+
+    .mobile-control {
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 20;
+    }
+
+    .jump-btn {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid #777;
+        background: rgba(0,0,0,.7);
+        color: white;
+        font-weight: 800;
+    }
+
+    .footer-bottom {
+        display: block;
+        line-height: 2;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        BENTANG JAWA
+    </div>
+
+    <div class="nav-links">
+        <a href="#story">STORY</a>
+        <a href="#finishers">FINISHERS</a>
+        <a href="#map">MAP</a>
+        <a href="#game">GAME</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            RIDE ACROSS JAVA — 2025
+        </div>
+
+        <h1>
+            BENTANG
+            <span>JAWA.</span>
+        </h1>
+
+        <p class="hero-description">
+            Sebuah perjalanan panjang melintasi Pulau Jawa,
+            dari Carita hingga Banyuwangi.
+            Satu rute, ribuan kilometer, dan tantangan tanpa henti.
+        </p>
+
+        <a href="#story" class="hero-btn">
+            EXPLORE RIDE ↓
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- CERITA -->
+
+<section id="story">
+
+    <div class="story">
+
+        <div>
+
+            <div class="section-label">
+                01 / THE STORY
+            </div>
+
+            <h2 class="section-title">
+                RIDE<br>
+                ACROSS<br>
+                JAVA.
+            </h2>
+
+        </div>
+
+        <div class="story-text">
+
+            <p>
+                <strong>Bentang Jawa</strong> merupakan perjalanan
+                bersepeda jarak jauh yang membentang melintasi
+                Pulau Jawa.
+            </p>
+
+            <br>
+
+            <p>
+                Rute 2025 dimulai dari
+                <strong>Carita</strong> dan berakhir di
+                <strong>Banyuwangi</strong>.
+                Perjalanan ini menuntut ketahanan,
+                strategi, dan kemampuan untuk terus bergerak
+                hingga garis akhir.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-number">
+                1,502.2
+            </div>
+
+            <div class="stat-name">
+                TOTAL DISTANCE / KM
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                17,365
+            </div>
+
+            <div class="stat-name">
+                ELEVATION GAIN / M
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TOP 3 FINISHER -->
+
+<section class="finishers" id="finishers">
+
+    <div class="section-label">
+        02 / TOP FINISHERS
+    </div>
+
+    <h2 class="section-title">
+        THE<br>
+        FINISHERS.
+    </h2>
+
+
+    <div class="podium">
+
+        <div class="rider">
+
+            <div class="position">
+                01
+            </div>
+
+            <div>
+
+                <div class="rider-name">
+                    Stephen Lane
+                </div>
+
+                <div class="rider-time">
+                    3D 05H 17M
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="rider">
+
+            <div class="position">
+                02
+            </div>
+
+            <div>
+
+                <div class="rider-name">
+                    Rama Wieland
+                </div>
+
+                <div class="rider-time">
+                    FINISHER
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="rider">
+
+            <div class="position">
+                03
+            </div>
+
+            <div>
+
+                <div class="rider-name">
+                    Qorie Muhammad Herdiansyah
+                </div>
+
+                <div class="rider-time">
+                    FINISHER
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MAP BENTANG JAWA -->
+
+<section id="map">
+
+    <div class="section-label">
+        03 / THE ROUTE
+    </div>
+
+    <h2 class="section-title">
+        MAP<br>
+        BENTANG JAWA.
+    </h2>
+
+
+    <div class="map-wrapper">
+
+        <img
+            src="1000582371.png"
+            alt="Map Bentang Jawa 2025"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- GAME -->
+
+<section class="game-section" id="game">
+
+    <div class="game-heading">
+
+        <div>
+
+            <div class="section-label">
+                04 / PLAY
+            </div>
+
+            <h2 class="section-title">
+                RIDE<br>
+                THE ROAD.
+            </h2>
+
+        </div>
+
+
+        <p class="game-description">
+            Seberapa jauh kamu bisa bertahan?
+            Lompat melewati rintangan dan tempuh
+            perjalanan sejauh mungkin.
+        </p>
+
+    </div>
+
+
+    <div class="game-box">
+
+        <canvas
+            id="gameCanvas"
+            width="1200"
+            height="500">
+        </canvas>
+
+
+        <!-- GAME UI -->
+
+        <div class="game-ui">
+
+            <div class="game-stat">
+
+                <small>
+                    DISTANCE
+                </small>
+
+                <strong id="distance">
+                    0 KM
+                </strong>
+
+            </div>
+
+
+            <div class="game-stat">
+
+                <small>
+                    SCORE
+                </small>
+
+                <strong id="score">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="game-stat">
+
+                <small>
+                    BEST
+                </small>
+
+                <strong id="best">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- START SCREEN -->
+
+        <div
+            class="game-start"
+            id="gameStart">
+
+            <div class="start-card">
+
+                <h3>
+                    RIDE THE ROAD
+                </h3>
+
+                <p>
+                    SPACE / ↑ untuk melompat
+                </p>
+
+                <button
+                    class="start-btn"
+                    id="startBtn">
+
+                    START RIDE
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOBILE BUTTON -->
+
+        <div class="mobile-control">
+
+            <button
+                class="jump-btn"
+                id="jumpBtn">
+
+                JUMP
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        BENTANG JAWA
+    </div>
+
+    <div class="footer-bottom">
+
+        <span>
+            CARITA — BANYUWANGI
+        </span>
+
+        <span>
+            RIDE. ENDURE. FINISH.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =====================================
+   BENTANG JAWA — MINI CYCLING GAME
+===================================== */
+
+const canvas =
+    document.getElementById("gameCanvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+const startScreen =
+    document.getElementById("gameStart");
+
+const startBtn =
+    document.getElementById("startBtn");
+
+const distanceText =
+    document.getElementById("distance");
+
+const scoreText =
+    document.getElementById("score");
+
+const bestText =
+    document.getElementById("best");
+
+const jumpBtn =
+    document.getElementById("jumpBtn");
+
+
+let gameRunning = false;
+let score = 0;
+let distance = 0;
+let speed = 6;
+let spawnTimer = 0;
+
+let bestScore =
+    Number(localStorage.getItem(
+        "bentangJawaBest"
+    )) || 0;
+
+bestText.textContent = bestScore;
+
+
+/* PLAYER */
+
+const player = {
+
+    x: 130,
+
+    y: 370,
+
+    width: 70,
+
+    height: 50,
+
+    velocityY: 0,
+
+    gravity: .8,
+
+    jumpPower: -15,
+
+    grounded: true
+
+};
+
+
+/* OBSTACLES */
+
+let obstacles = [];
+
+
+/* START GAME */
+
+function startGame() {
+
+    gameRunning = true;
+
+    score = 0;
+
+    distance = 0;
+
+    speed = 6;
+
+    spawnTimer = 50;
+
+    obstacles = [];
+
+    player.y = 370;
+
+    player.velocityY = 0;
+
+    player.grounded = true;
+
+    startScreen.style.display = "none";
+
+    requestAnimationFrame(gameLoop);
+
+}
+
+
+/* JUMP */
+
+function jump() {
+
+    if (!gameRunning) return;
+
+    if (player.grounded) {
+
+        player.velocityY =
+            player.jumpPower;
+
+        player.grounded = false;
+
+    }
+
+}
+
+
+/* KEYBOARD */
+
+document.addEventListener(
+    "keydown",
+    function(e) {
+
+        if (
+            e.code === "Space" ||
+            e.code === "ArrowUp"
+        ) {
+
+            e.preventDefault();
+
+            if (!gameRunning) {
+
+                startGame();
+
+            } else {
+
+                jump();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* MOBILE */
+
+jumpBtn.addEventListener(
+    "touchstart",
+    function(e) {
+
+        e.preventDefault();
+
+        if (!gameRunning) {
+            startGame();
+        }
+
+        jump();
+
+    }
+);
+
+
+startBtn.addEventListener(
+    "click",
+    startGame
+);
+
+
+/* BACKGROUND */
+
+function drawBackground() {
+
+    const gradient =
+        ctx.createLinearGradient(
+            0,
+            0,
+            0,
+            canvas.height
+        );
+
+    gradient.addColorStop(
+        0,
+        "#222"
+    );
+
+    gradient.addColorStop(
+        1,
+        "#090909"
+    );
+
+    ctx.fillStyle = gradient;
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    /* MOON */
+
+    ctx.fillStyle = "#eee";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        1000,
+        90,
+        42,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    /* MOUNTAINS */
+
+    ctx.fillStyle = "#161616";
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        0,
+        350
+    );
+
+    for (
+        let x = 0;
+        x <= canvas.width;
+        x += 100
+    ) {
+
+        const y =
+            330 -
+            Math.abs(
+                Math.sin(x * .009)
+            ) * 90;
+
+        ctx.lineTo(
+            x,
+            y
+        );
+
+    }
+
+    ctx.lineTo(
+        canvas.width,
+        430
+    );
+
+    ctx.lineTo(
+        0,
+        430
+    );
+
+    ctx.closePath();
+
+    ctx.fill();
+
+
+    /* ROAD */
+
+    ctx.fillStyle = "#303030";
+
+    ctx.fillRect(
+        0,
+        420,
+        canvas.width,
+        80
+    );
+
+
+    /* ROAD MARKING */
+
+    ctx.strokeStyle = "#aaa";
+
+    ctx.lineWidth = 3;
+
+    ctx.setLineDash([
+        50,
+        35
+    ]);
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        0,
+        460
+    );
+
+    ctx.lineTo(
+        canvas.width,
+        460
+    );
+
+    ctx.stroke();
+
+    ctx.setLineDash([]);
+
+}
+
+
+/* PLAYER */
+
+function drawPlayer() {
+
+    ctx.save();
+
+    ctx.translate(
+        player.x,
+        player.y
+    );
+
+
+    /* SHADOW */
+
+    ctx.fillStyle =
+        "rgba(0,0,0,.45)";
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        35,
+        50,
+        45,
+        7,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    /* WHEELS */
+
+    ctx.strokeStyle = "#eee";
+
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+
+    ctx.arc(
+        15,
+        35,
+        14,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.stroke();
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+        58,
+        35,
+        14,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.stroke();
+
+
+    /* FRAME */
+
+    ctx.strokeStyle = "#fff";
+
+    ctx.lineWidth = 3;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        15,
+        35
+    );
+
+    ctx.lineTo(
+        30,
+        15
+    );
+
+    ctx.lineTo(
+        45,
+        35
+    );
+
+    ctx.lineTo(
+        15,
+        35
+    );
+
+    ctx.lineTo(
+        58,
+        35
+    );
+
+    ctx.lineTo(
+        30,
+        15
+    );
+
+    ctx.stroke();
+
+
+    /* HANDLEBAR */
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        45,
+        35
+    );
+
+    ctx.lineTo(
+        53,
+        13
+    );
+
+    ctx.lineTo(
+        62,
+        10
+    );
+
+    ctx.stroke();
+
+
+    /* RIDER HEAD */
+
+    ctx.fillStyle = "#fff";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        35,
+        3,
+        7,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    /* RIDER BODY */
+
+    ctx.strokeStyle = "#fff";
+
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        35,
+        10
+    );
+
+    ctx.lineTo(
+        30,
+        24
+    );
+
+    ctx.lineTo(
+        43,
+        28
+    );
+
+    ctx.stroke();
+
+
+    ctx.restore();
+
+}
+
+
+/* OBSTACLE */
+
+function drawObstacle(obstacle) {
+
+    ctx.fillStyle = "#aaa";
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        obstacle.x,
+        obstacle.y +
+        obstacle.height
+    );
+
+    ctx.lineTo(
+        obstacle.x +
+        obstacle.width / 2,
+        obstacle.y
+    );
+
+    ctx.lineTo(
+        obstacle.x +
+        obstacle.width,
+        obstacle.y +
+        obstacle.height
+    );
+
+    ctx.closePath();
+
+    ctx.fill();
+
+}
+
+
+/* CREATE OBSTACLE */
+
+function createObstacle() {
+
+    obstacles.push({
+
+        x: canvas.width + 50,
+
+        y: 380,
+
+        width:
+            35 +
+            Math.random() * 20,
+
+        height:
+            40 +
+            Math.random() * 20
+
+    });
+
+}
+
+
+/* COLLISION */
+
+function collision(a,b) {
+
+    return (
+
+        a.x <
+        b.x + b.width &&
+
+        a.x + a.width >
+        b.x &&
+
+        a.y <
+        b.y + b.height &&
+
+        a.y + a.height >
+        b.y
+
+    );
+
+}
+
+
+/* GAME OVER */
+
+function endGame() {
+
+    gameRunning = false;
+
+    if (score > bestScore) {
+
+        bestScore =
+            Math.floor(score);
+
+        localStorage.setItem(
+            "bentangJawaBest",
+            bestScore
+        );
+
+    }
+
+    bestText.textContent =
+        bestScore;
+
+    startScreen.style.display =
+        "flex";
+
+    document.querySelector(
+        ".start-card h3"
+    ).textContent =
+        "RIDE COMPLETE";
+
+    document.querySelector(
+        ".start-card p"
+    ).textContent =
+        "Score: " +
+        Math.floor(score) +
+        " — coba lagi!";
+
+    startBtn.textContent =
+        "RIDE AGAIN";
+
+}
+
+
+/* GAME LOOP */
+
+function gameLoop() {
+
+    if (!gameRunning) return;
+
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    drawBackground();
+
+
+    /* PLAYER PHYSICS */
+
+    player.velocityY +=
+        player.gravity;
+
+    player.y +=
+        player.velocityY;
+
+
+    if (player.y >= 370) {
+
+        player.y = 370;
+
+        player.velocityY = 0;
+
+        player.grounded = true;
+
+    }
+
+
+    /* SPAWN */
+
+    spawnTimer--;
+
+    if (spawnTimer <= 0) {
+
+        createObstacle();
+
+        spawnTimer =
+            65 +
+            Math.random() * 100;
+
+    }
+
+
+    /* OBSTACLES */
+
+    for (
+        let i = obstacles.length - 1;
+        i >= 0;
+        i--
+    ) {
+
+        const obstacle =
+            obstacles[i];
+
+        obstacle.x -= speed;
+
+        drawObstacle(
+            obstacle
+        );
+
+
+        const playerBox = {
+
+            x: player.x + 10,
+
+            y: player.y + 8,
+
+            width: 50,
+
+            height: 42
+
+        };
+
+
+        if (
+            collision(
+                playerBox,
+                obstacle
+            )
+        ) {
+
+            endGame();
+
+            return;
+
+        }
+
+
+        if (
+            obstacle.x +
+            obstacle.width <
+            0
+        ) {
+
+            obstacles.splice(
+                i,
+                1
+            );
+
+            score += 100;
+
+        }
+
+    }
+
+
+    drawPlayer();
+
+
+    /* SCORE */
+
+    distance +=
+        speed * .01;
+
+    score += .03;
+
+    speed += .001;
+
+
+    distanceText.textContent =
+        Math.floor(distance) +
+        " KM";
+
+    scoreText.textContent =
+        Math.floor(score);
+
+
+    requestAnimationFrame(
+        gameLoop
+    );
+
+}
+
+</script>
+
+</body>
+              </html>
