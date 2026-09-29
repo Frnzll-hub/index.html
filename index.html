@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Farandzolla | Personal Portfolio</title>
 
 <style>
@@ -14,25 +13,15 @@
     scroll-behavior:smooth;
 }
 
-:root{
-    --black:#050505;
-    --dark:#0c0c0c;
-    --gray:#171717;
-    --gray2:#777;
-    --white:#fff;
-    --border:rgba(255,255,255,.13);
-}
-
 body{
-    background:var(--black);
-    color:white;
+    background:#050505;
+    color:#fff;
     font-family:Arial,Helvetica,sans-serif;
-    overflow-x:hidden;
 }
 
 a{
-    color:inherit;
     text-decoration:none;
+    color:inherit;
 }
 
 /* ================= NAVBAR ================= */
@@ -44,7 +33,7 @@ header{
     z-index:1000;
     background:rgba(5,5,5,.85);
     backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid #222;
 }
 
 nav{
@@ -54,8 +43,8 @@ nav{
     padding:0 30px;
 
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
@@ -70,23 +59,23 @@ nav{
 
 .nav-links{
     display:flex;
-    gap:30px;
     list-style:none;
+    gap:30px;
 }
 
 .nav-links a{
-    color:#aaa;
+    color:#999;
     font-size:14px;
     transition:.3s;
 }
 
 .nav-links a:hover{
-    color:white;
+    color:#fff;
 }
 
 .menu{
     display:none;
-    font-size:26px;
+    font-size:25px;
     cursor:pointer;
 }
 
@@ -99,19 +88,15 @@ nav{
     padding:130px 30px 80px;
 
     display:grid;
-    grid-template-columns:1fr 430px;
-    gap:80px;
+    grid-template-columns:1fr 420px;
     align-items:center;
-}
-
-.hero-text{
-    animation:fadeUp 1s ease;
+    gap:70px;
 }
 
 .subtitle{
-    color:#888;
-    letter-spacing:5px;
+    color:#777;
     font-size:13px;
+    letter-spacing:5px;
     margin-bottom:20px;
 }
 
@@ -119,7 +104,6 @@ nav{
     font-size:clamp(60px,9vw,110px);
     line-height:.85;
     letter-spacing:-6px;
-    margin-bottom:25px;
 }
 
 .hero h1 span{
@@ -127,44 +111,32 @@ nav{
 }
 
 .typing{
-    font-size:21px;
     color:#ccc;
-    min-height:32px;
-    margin-bottom:20px;
+    font-size:21px;
+    min-height:30px;
+    margin:25px 0;
 }
 
 .description{
-    max-width:580px;
+    max-width:570px;
     color:#888;
     line-height:1.8;
-    margin-bottom:30px;
 }
 
-.buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:13px 24px;
-    border:1px solid white;
+.button{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 25px;
+    background:#fff;
+    color:#000;
     transition:.3s;
-    font-size:14px;
 }
 
-.btn.primary{
-    background:white;
-    color:black;
-}
-
-.btn:hover{
-    background:white;
-    color:black;
+.button:hover{
     transform:translateY(-4px);
 }
 
-/* ================= PHOTO EDITOR ================= */
+/* ================= PROFILE ================= */
 
 .profile-area{
     display:flex;
@@ -172,82 +144,78 @@ nav{
     align-items:center;
 }
 
-.profile-frame{
+.photo-frame{
     width:360px;
     height:470px;
-    position:relative;
     padding:10px;
     border:1px solid #555;
+    position:relative;
 }
 
-.profile-frame::before{
+.photo-frame::before{
     content:"";
     position:absolute;
-    top:-18px;
-    left:-18px;
-    width:90px;
-    height:90px;
+    top:-15px;
+    left:-15px;
+    width:80px;
+    height:80px;
     border-top:3px solid white;
     border-left:3px solid white;
 }
 
-.profile-frame::after{
+.photo-frame::after{
     content:"";
     position:absolute;
-    right:-18px;
-    bottom:-18px;
-    width:90px;
-    height:90px;
+    bottom:-15px;
+    right:-15px;
+    width:80px;
+    height:80px;
     border-right:3px solid white;
     border-bottom:3px solid white;
 }
 
-.profile-frame img{
+/* ================= IMG FOTO PROFIL ================= */
+
+.photo-frame img{
     width:100%;
     height:100%;
     object-fit:cover;
     display:block;
-
-    filter:var(--photo-filter,none);
-    transition:filter .3s;
+    filter:grayscale(100%);
+    transition:.3s;
 }
 
-/* ================= PHOTO CONTROLS ================= */
+/* ================= PHOTO EDITOR ================= */
 
-.photo-controls{
+.editor{
     width:360px;
     margin-top:35px;
 }
 
-.upload-btn{
-    width:100%;
+.upload{
     display:block;
-    text-align:center;
-
+    width:100%;
     padding:13px;
+    text-align:center;
     border:1px solid white;
     cursor:pointer;
-
     transition:.3s;
-    font-size:14px;
 }
 
-.upload-btn:hover{
-    background:white;
-    color:black;
+.upload:hover{
+    background:#fff;
+    color:#000;
 }
 
-#photoUpload{
+#uploadPhoto{
     display:none;
 }
 
-/* FILTER BUTTONS */
-
-.filter-title{
-    margin:25px 0 12px;
-    color:#888;
-    font-size:12px;
+.title{
+    color:#777;
+    font-size:11px;
     letter-spacing:2px;
+    margin:20px 0 10px;
 }
 
 .filters{
@@ -256,83 +224,71 @@ nav{
     gap:7px;
 }
 
-.filter-btn{
+.filter{
+    padding:9px 4px;
     background:#111;
     color:#aaa;
-    border:1px solid #252525;
-    padding:9px 5px;
+    border:1px solid #292929;
     cursor:pointer;
     font-size:11px;
     transition:.3s;
 }
 
-.filter-btn:hover,
-.filter-btn.active{
-    background:white;
-    color:black;
-    border-color:white;
+.filter:hover,
+.filter.active{
+    background:#fff;
+    color:#000;
+    border-color:#fff;
 }
 
-/* SLIDERS */
-
-.adjustments{
-    margin-top:20px;
+.slider{
+    margin-bottom:15px;
 }
 
-.slider-row{
-    margin-bottom:14px;
-}
-
-.slider-info{
+.slider label{
     display:flex;
     justify-content:space-between;
-    color:#888;
+    color:#777;
     font-size:11px;
     margin-bottom:5px;
 }
 
-input[type="range"]{
+.slider input{
     width:100%;
-    accent-color:white;
-    cursor:pointer;
+    accent-color:#fff;
 }
 
-.reset-btn{
+.reset{
     width:100%;
-    margin-top:5px;
     padding:10px;
-
     background:transparent;
     color:#777;
     border:1px solid #333;
-
     cursor:pointer;
-    transition:.3s;
 }
 
-.reset-btn:hover{
-    color:white;
-    border-color:white;
+.reset:hover{
+    color:#fff;
+    border-color:#fff;
 }
 
 /* ================= SECTION ================= */
 
-section{
+section:not(.hero){
     max-width:1200px;
     margin:auto;
     padding:110px 30px;
 }
 
-.section-label{
+.label{
     color:#555;
-    font-size:13px;
     letter-spacing:4px;
+    font-size:12px;
 }
 
-.section-title{
-    font-size:52px;
-    margin:8px 0 50px;
-    letter-spacing:-2px;
+h2{
+    font-size:50px;
+    margin:10px 0 45px;
 }
 
 /* ================= ABOUT ================= */
@@ -340,24 +296,24 @@ section{
 .about{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:70px;
+    gap:60px;
 }
 
 .about-text{
     color:#999;
-    font-size:17px;
     line-height:1.9;
+    font-size:17px;
 }
 
 .info{
-    border-top:1px solid var(--border);
+    border-top:1px solid #222;
 }
 
 .info-row{
     display:flex;
     justify-content:space-between;
     padding:17px 0;
-    border-bottom:1px solid var(--border);
+    border-bottom:1px solid #222;
 }
 
 .info-row span{
@@ -366,68 +322,31 @@ section{
 
 /* ================= SKILLS ================= */
 
-.skills{
+.cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
 
 .card{
-    background:#0c0c0c;
-    border:1px solid var(--border);
     padding:30px;
-    transition:.35s;
+    background:#0d0d0d;
+    border:1px solid #222;
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    border-color:#777;
-}
-
-.card h3{
-    font-size:22px;
-    margin-bottom:10px;
+    transform:translateY(-7px);
+    border-color:#666;
 }
 
 .card p{
     color:#777;
+    margin-top:10px;
     line-height:1.7;
 }
 
-/* ================= INTEREST ================= */
-
-.interests{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-}
-
-.interest{
-    height:190px;
-    padding:25px;
-
-    border:1px solid var(--border);
-    background:#0b0b0b;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-
-    transition:.35s;
-}
-
-.interest:hover{
-    background:white;
-    color:black;
-    transform:translateY(-7px);
-}
-
-.interest p{
-    color:#777;
-    margin-top:5px;
-}
-
-/* ================= PROJECT ================= */
+/* ================= PROJECTS ================= */
 
 .projects{
     display:grid;
@@ -436,58 +355,48 @@ section{
 }
 
 .project{
-    min-height:270px;
+    min-height:230px;
     padding:30px;
-
-    border:1px solid var(--border);
-    background:linear-gradient(145deg,#111,#080808);
+    background:#0d0d0d;
+    border:1px solid #222;
 
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
 
-    transition:.35s;
+    transition:.3s;
 }
 
 .project:hover{
     transform:translateY(-7px);
-    border-color:#777;
-}
-
-.project-number{
-    color:#555;
-    margin-bottom:auto;
-}
-
-.project h3{
-    font-size:28px;
-    margin-bottom:8px;
+    border-color:#666;
 }
 
 .project p{
     color:#777;
+    margin-top:10px;
 }
 
 /* ================= JOURNEY ================= */
 
 .timeline{
     border-left:1px solid #444;
-    padding-left:35px;
+    padding-left:30px;
 }
 
 .timeline-item{
+    margin-bottom:40px;
     position:relative;
-    padding-bottom:45px;
 }
 
 .timeline-item::before{
     content:"";
     position:absolute;
-    left:-41px;
+    left:-36px;
     top:5px;
     width:10px;
     height:10px;
-    background:white;
+    background:#fff;
     border-radius:50%;
 }
 
@@ -498,52 +407,29 @@ section{
 }
 
 .timeline-item h3{
-    font-size:25px;
-    margin:7px 0;
+    margin:8px 0;
+    font-size:24px;
 }
 
 .timeline-item p{
     color:#777;
 }
 
-/* ================= GOAL ================= */
-
-.goal{
-    text-align:center;
-    padding:70px 30px;
-    border:1px solid var(--border);
-}
-
-.goal h2{
-    font-size:clamp(40px,6vw,70px);
-    line-height:1;
-    margin:20px 0;
-}
-
-.goal p{
-    color:#777;
-    max-width:650px;
-    margin:auto;
-    line-height:1.8;
-}
-
 /* ================= CONTACT ================= */
 
 .contact{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
     padding:40px;
-    border:1px solid var(--border);
-}
+    border:1px solid #222;
 
-.contact h3{
-    font-size:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
 }
 
 .contact p{
     color:#777;
+    margin-top:8px;
 }
 
 .contact-links{
@@ -552,45 +438,20 @@ section{
 }
 
 .contact-links a{
-    color:#999;
+    color:#888;
 }
 
 .contact-links a:hover{
-    color:white;
+    color:#fff;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-    border-top:1px solid var(--border);
     text-align:center;
     padding:30px;
     color:#555;
-    font-size:13px;
-}
-
-/* ================= ANIMATION ================= */
-
-.reveal{
-    opacity:0;
-    transform:translateY(35px);
-    transition:1s;
-}
-
-.reveal.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    border-top:1px solid #222;
 }
 
 /* ================= MOBILE ================= */
@@ -599,18 +460,13 @@ footer{
 
     .nav-links{
         display:none;
-
         position:absolute;
         top:75px;
         left:0;
-
         width:100%;
         padding:25px;
-
         background:#080808;
-
         flex-direction:column;
-        gap:20px;
     }
 
     .nav-links.active{
@@ -632,19 +488,14 @@ footer{
 
     .description{
         margin:auto;
-        margin-bottom:30px;
     }
 
-    .buttons{
-        justify-content:center;
-    }
-
-    .profile-frame{
+    .photo-frame{
         width:290px;
         height:380px;
     }
 
-    .photo-controls{
+    .editor{
         width:290px;
     }
 
@@ -652,11 +503,7 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .skills{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .interests{
+    .cards{
         grid-template-columns:1fr 1fr;
     }
 
@@ -672,25 +519,24 @@ footer{
 
 @media(max-width:500px){
 
-    section{
-        padding:80px 20px;
-    }
-
     .hero{
         padding-left:20px;
         padding-right:20px;
     }
 
     .hero h1{
-        font-size:62px;
+        font-size:60px;
     }
 
-    .section-title{
+    section:not(.hero){
+        padding:80px 20px;
+    }
+
+    h2{
         font-size:40px;
     }
 
-    .skills,
-    .interests{
+    .cards{
         grid-template-columns:1fr;
     }
 
@@ -698,22 +544,21 @@ footer{
         flex-direction:column;
         gap:10px;
     }
-
 }
 </style>
 </head>
+
 
 <body>
 
 <!-- ================= NAVBAR ================= -->
 
 <header>
-
 <nav>
 
-<a href="#home" class="logo">
+<div class="logo">
 FARAN<span>DZOLLA</span>
-</a>
+</div>
 
 <ul class="nav-links" id="navLinks">
 <li><a href="#home">Home</a></li>
@@ -729,15 +574,14 @@ FARAN<span>DZOLLA</span>
 </div>
 
 </nav>
-
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- ================= HOME ================= -->
 
 <section class="hero" id="home">
 
-<div class="hero-text">
+<div>
 
 <div class="subtitle">
 PERSONAL PORTFOLIO
@@ -750,173 +594,171 @@ Farand<span>zolla.</span>
 <div class="typing" id="typing"></div>
 
 <p class="description">
-Halo, saya Farandzolla. Seorang pelajar yang tertarik
-dengan teknologi, web development, desain, dan dunia
-bersepeda.
+Halo, saya Farandzolla. Seorang pelajar yang
+tertarik pada teknologi, web development,
+desain, dan dunia bersepeda.
 </p>
 
-<div class="buttons">
-
-<a href="#about" class="btn primary">
+<a href="#about" class="button">
 Explore My Profile
 </a>
 
-<a href="#projects" class="btn">
-View Projects
-</a>
-
-</div>
-
 </div>
 
 
-<!-- ================= PHOTO ================= -->
+<!-- ================= PROFILE ================= -->
 
 <div class="profile-area">
 
-<div class="profile-frame">
+<div class="photo-frame">
 
+<!-- FOTO PROFIL -->
 <img
-id="profileImage"
-src="1000582382.jpg"
-alt="Foto Profil Farandzolla">
+    id="profileImage"
+    src="1000582382.jpg"
+    alt="Foto Profil Farandzolla">
 
 </div>
 
 
 <!-- ================= PHOTO EDITOR ================= -->
 
-<div class="photo-controls">
+<div class="editor">
 
-<label for="photoUpload" class="upload-btn">
-＋ Ganti Foto Profil
+<label for="uploadPhoto" class="upload">
+📷 Ganti Foto Profil
 </label>
 
 <input
-type="file"
-id="photoUpload"
-accept="image/*">
+    type="file"
+    id="uploadPhoto"
+    accept="image/*">
 
 
-<div class="filter-title">
+<div class="title">
 FILTER
 </div>
 
 <div class="filters">
 
-<button class="filter-btn active" data-filter="none">
-Original
-</button>
-
-<button class="filter-btn" data-filter="grayscale">
+<button class="filter active"
+data-filter="grayscale(100%)">
 Noir
 </button>
 
-<button class="filter-btn" data-filter="vintage">
+<button class="filter"
+data-filter="none">
+Original
+</button>
+
+<button class="filter"
+data-filter="sepia(60%) contrast(110%)">
 Vintage
 </button>
 
-<button class="filter-btn" data-filter="contrast">
+<button class="filter"
+data-filter="contrast(150%)">
 Contrast
 </button>
 
-<button class="filter-btn" data-filter="bright">
+<button class="filter"
+data-filter="brightness(130%)">
 Bright
 </button>
 
-<button class="filter-btn" data-filter="warm">
+<button class="filter"
+data-filter="sepia(30%) saturate(150%)">
 Warm
 </button>
 
-<button class="filter-btn" data-filter="cool">
+<button class="filter"
+data-filter="hue-rotate(180deg)">
 Cool
 </button>
 
-<button class="filter-btn" data-filter="soft">
-Soft
+<button class="filter"
+data-filter="grayscale(100%) contrast(140%)">
+B&W
 </button>
 
 </div>
 
 
-<div class="filter-title">
+<div class="title">
 ADJUSTMENT
 </div>
 
-<div class="adjustments">
 
-<div class="slider-row">
+<div class="slider">
 
-<div class="slider-info">
+<label>
 <span>Brightness</span>
-<span id="brightnessValue">100%</span>
-</div>
+<span id="brightText">100%</span>
+</label>
 
 <input
-type="range"
-id="brightness"
-min="50"
-max="150"
-value="100">
+    type="range"
+    id="brightness"
+    min="50"
+    max="150"
+    value="100">
 
 </div>
 
 
-<div class="slider-row">
+<div class="slider">
 
-<div class="slider-info">
+<label>
 <span>Contrast</span>
-<span id="contrastValue">100%</span>
-</div>
+<span id="contrastText">100%</span>
+</label>
 
 <input
-type="range"
-id="contrast"
-min="50"
-max="180"
-value="100">
+    type="range"
+    id="contrast"
+    min="50"
+    max="180"
+    value="100">
 
 </div>
 
 
-<div class="slider-row">
+<div class="slider">
 
-<div class="slider-info">
+<label>
 <span>Saturation</span>
-<span id="saturationValue">100%</span>
-</div>
+<span id="saturationText">100%</span>
+</label>
 
 <input
-type="range"
-id="saturation"
-min="0"
-max="180"
-value="100">
+    type="range"
+    id="saturation"
+    min="0"
+    max="180"
+    value="100">
 
 </div>
 
 
-<div class="slider-row">
+<div class="slider">
 
-<div class="slider-info">
+<label>
 <span>Blur</span>
-<span id="blurValue">0px</span>
-</div>
+<span id="blurText">0px</span>
+</label>
 
 <input
-type="range"
-id="blur"
-min="0"
-max="5"
-step=".1"
-value="0">
+    type="range"
+    id="blur"
+    min="0"
+    max="5"
+    step="0.1"
+    value="0">
 
 </div>
 
-</div>
 
-
-<button class="reset-btn" id="resetPhoto">
+<button class="reset" id="reset">
 Reset Foto
 </button>
 
@@ -929,13 +771,13 @@ Reset Foto
 
 <!-- ================= ABOUT ================= -->
 
-<section id="about" class="reveal">
+<section id="about">
 
-<div class="section-label">
+<div class="label">
 01 / ABOUT
 </div>
 
-<h2 class="section-title">
+<h2>
 About Me
 </h2>
 
@@ -945,8 +787,7 @@ About Me
 Saya adalah seorang pelajar yang memiliki ketertarikan
 pada dunia teknologi dan kreativitas. Saya senang
 mempelajari pembuatan website menggunakan HTML,
-CSS, dan JavaScript serta mencoba berbagai project
-baru.
+CSS, dan JavaScript serta mencoba berbagai project baru.
 
 Selain teknologi, saya juga memiliki minat dalam
 olahraga, khususnya bersepeda.
@@ -983,17 +824,17 @@ olahraga, khususnya bersepeda.
 
 <!-- ================= SKILLS ================= -->
 
-<section id="skills" class="reveal">
+<section id="skills">
 
-<div class="section-label">
+<div class="label">
 02 / SKILLS
 </div>
 
-<h2 class="section-title">
+<h2>
 My Skills
 </h2>
 
-<div class="skills">
+<div class="cards">
 
 <div class="card">
 <h3>HTML</h3>
@@ -1030,79 +871,36 @@ My Skills
 </section>
 
 
-<!-- ================= INTEREST ================= -->
-
-<section class="reveal">
-
-<div class="section-label">
-03 / INTEREST
-</div>
-
-<h2 class="section-title">
-My Interests
-</h2>
-
-<div class="interests">
-
-<div class="interest">
-<h3>🚴 Cycling</h3>
-<p>Exploring the world through two wheels.</p>
-</div>
-
-<div class="interest">
-<h3>💻 Technology</h3>
-<p>Learning and creating with technology.</p>
-</div>
-
-<div class="interest">
-<h3>🎨 Design</h3>
-<p>Creating modern visual experiences.</p>
-</div>
-
-<div class="interest">
-<h3>🎮 Gaming</h3>
-<p>Exploring virtual worlds.</p>
-</div>
-
-</div>
-
-</section>
-
-
 <!-- ================= PROJECTS ================= -->
 
-<section id="projects" class="reveal">
+<section id="projects">
 
-<div class="section-label">
-04 / PROJECTS
+<div class="label">
+03 / PROJECTS
 </div>
 
-<h2 class="section-title">
-Selected Projects
+<h2>
+My Projects
 </h2>
 
 <div class="projects">
 
 <div class="project">
-<span class="project-number">01</span>
 <h3>CycleHub</h3>
-<p>Website bertema dunia sepeda dengan desain modern.</p>
+<p>Website bertema dunia sepeda.</p>
 </div>
 
 <div class="project">
-<span class="project-number">02</span>
 <h3>Bentang Jawa</h3>
-<p>Website informasi dan visualisasi event Bentang Jawa.</p>
+<p>Website informasi Bentang Jawa.</p>
 </div>
 
 <div class="project">
-<span class="project-number">03</span>
 <h3>IQ Test</h3>
-<p>Website interaktif untuk tes IQ dan minat bakat.</p>
+<p>Website tes IQ dan minat bakat.</p>
 </div>
 
 <div class="project">
-<span class="project-number">04</span>
 <h3>Explore Dufan</h3>
 <p>Project digital mengenai Dunia Fantasi.</p>
 </div>
@@ -1114,13 +912,13 @@ Selected Projects
 
 <!-- ================= JOURNEY ================= -->
 
-<section id="journey" class="reveal">
+<section id="journey">
 
-<div class="section-label">
-05 / JOURNEY
+<div class="label">
+04 / JOURNEY
 </div>
 
-<h2 class="section-title">
+<h2>
 My Journey
 </h2>
 
@@ -1129,52 +927,36 @@ My Journey
 <div class="timeline-item">
 <span>EARLIER</span>
 <h3>Junior High School</h3>
-<p>Mulai mengenal berbagai kegiatan sekolah dan organisasi.</p>
+<p>
+Mulai mengenal berbagai kegiatan sekolah
+dan organisasi.
+</p>
 </div>
 
 <div class="timeline-item">
 <span>NOW</span>
 <h3>High School — X-F</h3>
-<p>Mengembangkan kemampuan dan mencoba berbagai project kreatif.</p>
+<p>
+Mengembangkan kemampuan dan mencoba
+berbagai project kreatif.
+</p>
 </div>
 
 <div class="timeline-item">
 <span>DEVELOPMENT</span>
 <h3>Web Development</h3>
-<p>Mempelajari HTML, CSS, dan JavaScript.</p>
+<p>
+Mempelajari HTML, CSS, dan JavaScript.
+</p>
 </div>
 
 <div class="timeline-item">
 <span>FUTURE</span>
 <h3>Keep Moving Forward</h3>
-<p>Terus belajar, berkarya, dan berkembang.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= GOAL ================= -->
-
-<section class="reveal">
-
-<div class="goal">
-
-<div class="section-label">
-06 / MY GOAL
-</div>
-
-<h2>
-Keep Learning.<br>
-Keep Creating.
-</h2>
-
 <p>
-Saya ingin terus mengembangkan kemampuan
-di bidang teknologi dan web development
-sekaligus mengejar passion saya di dunia bersepeda.
+Terus belajar, berkarya, dan berkembang.
 </p>
+</div>
 
 </div>
 
@@ -1183,13 +965,13 @@ sekaligus mengejar passion saya di dunia bersepeda.
 
 <!-- ================= CONTACT ================= -->
 
-<section id="contact" class="reveal">
+<section id="contact">
 
-<div class="section-label">
-07 / CONTACT
+<div class="label">
+05 / CONTACT
 </div>
 
-<h2 class="section-title">
+<h2>
 Let's Connect
 </h2>
 
@@ -1201,8 +983,8 @@ Let's Connect
 </div>
 
 <div class="contact-links">
-<a href="#" target="_blank">Instagram</a>
-<a href="#" target="_blank">GitHub</a>
+<a href="#">Instagram</a>
+<a href="#">GitHub</a>
 <a href="mailto:email@example.com">Email</a>
 </div>
 
@@ -1211,32 +993,44 @@ Let's Connect
 </section>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
-© <span id="year"></span> Farandzolla. All Rights Reserved.
+© 2026 Farandzolla. All Rights Reserved.
 </footer>
 
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
 /* ================= MENU ================= */
 
-const menu = document.getElementById("menu");
-const navLinks = document.getElementById("navLinks");
+const menu =
+document.getElementById("menu");
 
-menu.addEventListener("click",()=>{
+const navLinks =
+document.getElementById("navLinks");
+
+menu.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
 
-document.querySelectorAll(".nav-links a").forEach(link=>{
-    link.addEventListener("click",()=>{
+
+document.querySelectorAll(".nav-links a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
         navLinks.classList.remove("active");
     });
+
 });
 
 
-/* ================= TYPING ================= */
+/* ================= TYPING EFFECT ================= */
 
-const typing = document.getElementById("typing");
+const typing =
+document.getElementById("typing");
 
 const words = [
     "Student.",
@@ -1256,7 +1050,7 @@ function typeEffect(){
     if(!deleting){
 
         typing.textContent =
-            word.substring(0,charIndex+1);
+        word.substring(0,charIndex + 1);
 
         charIndex++;
 
@@ -1264,15 +1058,14 @@ function typeEffect(){
 
             deleting = true;
 
-            setTimeout(typeEffect,1500);
-
+            setTimeout(typeEffect,1200);
             return;
         }
 
     }else{
 
         typing.textContent =
-            word.substring(0,charIndex-1);
+        word.substring(0,charIndex - 1);
 
         charIndex--;
 
@@ -1297,64 +1090,42 @@ function typeEffect(){
 typeEffect();
 
 
-/* ================= PHOTO EDITOR ================= */
+/* ================= FOTO PROFIL ================= */
 
-const image = document.getElementById("profileImage");
-const upload = document.getElementById("photoUpload");
+const profileImage =
+document.getElementById("profileImage");
 
-const filterButtons =
-    document.querySelectorAll(".filter-btn");
-
-const brightness =
-    document.getElementById("brightness");
-
-const contrast =
-    document.getElementById("contrast");
-
-const saturation =
-    document.getElementById("saturation");
-
-const blur =
-    document.getElementById("blur");
+const uploadPhoto =
+document.getElementById("uploadPhoto");
 
 
-const brightnessValue =
-    document.getElementById("brightnessValue");
+/* ================= GANTI FOTO ================= */
 
-const contrastValue =
-    document.getElementById("contrastValue");
-
-const saturationValue =
-    document.getElementById("saturationValue");
-
-const blurValue =
-    document.getElementById("blurValue");
-
-
-let currentFilter = "";
-
-
-/* ================= UPLOAD FOTO ================= */
-
-upload.addEventListener("change",function(){
+uploadPhoto.addEventListener("change", function(){
 
     const file = this.files[0];
 
-    if(!file) return;
-
-    if(!file.type.startsWith("image/")){
-        alert("Silakan pilih file gambar.");
+    if(!file){
         return;
     }
 
-    const reader = new FileReader();
+    if(!file.type.startsWith("image/")){
+
+        alert("Silakan pilih file gambar.");
+
+        return;
+    }
+
+    const reader =
+    new FileReader();
 
     reader.onload = function(event){
 
-        image.src = event.target.result;
+        profileImage.src =
+        event.target.result;
 
         localStorage.setItem(
-            "farandzollaProfile",
+            "farandzollaPhoto",
             event.target.result
         );
 
@@ -1368,135 +1139,123 @@ upload.addEventListener("change",function(){
 /* ================= LOAD FOTO ================= */
 
 const savedPhoto =
-    localStorage.getItem("farandzollaProfile");
+localStorage.getItem("farandzollaPhoto");
 
 if(savedPhoto){
-    image.src = savedPhoto;
+
+    profileImage.src =
+    savedPhoto;
+
 }
 
 
 /* ================= FILTER ================= */
 
-filterButtons.forEach(button=>{
+const filters =
+document.querySelectorAll(".filter");
 
-    button.addEventListener("click",()=>{
+let selectedFilter =
+"grayscale(100%)";
 
-        filterButtons.forEach(btn=>{
+
+filters.forEach(button => {
+
+    button.addEventListener("click", function(){
+
+        filters.forEach(btn => {
             btn.classList.remove("active");
         });
 
-        button.classList.add("active");
+        this.classList.add("active");
 
-        currentFilter =
-            button.dataset.filter;
+        selectedFilter =
+        this.dataset.filter;
 
-        applyFilter();
+        updateImage();
 
     });
 
 });
 
 
-function applyFilter(){
+/* ================= SLIDER ================= */
 
-    let brightnessValueNum =
-        brightness.value;
+const brightness =
+document.getElementById("brightness");
 
-    let contrastValueNum =
-        contrast.value;
+const contrast =
+document.getElementById("contrast");
 
-    let saturationValueNum =
-        saturation.value;
+const saturation =
+document.getElementById("saturation");
 
-    let blurValueNum =
-        blur.value;
+const blur =
+document.getElementById("blur");
 
 
-    let filter = `
-        brightness(${brightnessValueNum}%)
-        contrast(${contrastValueNum}%)
-        saturate(${saturationValueNum}%)
-        blur(${blurValueNum}px)
+function updateImage(){
+
+    profileImage.style.filter = `
+
+        ${selectedFilter}
+
+        brightness(${brightness.value}%)
+
+        contrast(${contrast.value}%)
+
+        saturate(${saturation.value}%)
+
+        blur(${blur.value}px)
+
     `;
 
-
-    switch(currentFilter){
-
-        case "grayscale":
-            filter += " grayscale(100%)";
-            break;
-
-        case "vintage":
-            filter += " sepia(55%) contrast(110%)";
-            break;
-
-        case "contrast":
-            filter += " contrast(150%) grayscale(20%)";
-            break;
-
-        case "bright":
-            filter += " brightness(125%)";
-            break;
-
-        case "warm":
-            filter += " sepia(35%) saturate(130%)";
-            break;
-
-        case "cool":
-            filter += " hue-rotate(180deg) saturate(90%)";
-            break;
-
-        case "soft":
-            filter += " brightness(110%) contrast(85%) saturate(80%)";
-            break;
-
-        case "none":
-        default:
-            break;
-    }
-
-    image.style.filter = filter;
 }
 
 
-/* ================= SLIDERS ================= */
+/* ================= BRIGHTNESS ================= */
 
-brightness.addEventListener("input",()=>{
+brightness.addEventListener("input",function(){
 
-    brightnessValue.textContent =
-        brightness.value + "%";
+    document.getElementById("brightText")
+    .textContent = this.value + "%";
 
-    applyFilter();
-
-});
-
-
-contrast.addEventListener("input",()=>{
-
-    contrastValue.textContent =
-        contrast.value + "%";
-
-    applyFilter();
+    updateImage();
 
 });
 
 
-saturation.addEventListener("input",()=>{
+/* ================= CONTRAST ================= */
 
-    saturationValue.textContent =
-        saturation.value + "%";
+contrast.addEventListener("input",function(){
 
-    applyFilter();
+    document.getElementById("contrastText")
+    .textContent = this.value + "%";
+
+    updateImage();
 
 });
 
 
-blur.addEventListener("input",()=>{
+/* ================= SATURATION ================= */
 
-    blurValue.textContent =
-        blur.value + "px";
+saturation.addEventListener("input",function(){
 
-    applyFilter();
+    document.getElementById("saturationText")
+    .textContent = this.value + "%";
+
+    updateImage();
+
+});
+
+
+/* ================= BLUR ================= */
+
+blur.addEventListener("input",function(){
+
+    document.getElementById("blurText")
+    .textContent = this.value + "px";
+
+    updateImage();
 
 });
 
@@ -1504,68 +1263,40 @@ blur.addEventListener("input",()=>{
 /* ================= RESET ================= */
 
 document
-.getElementById("resetPhoto")
-.addEventListener("click",()=>{
+.getElementById("reset")
+.addEventListener("click",function(){
 
-    currentFilter = "";
+    selectedFilter = "none";
 
     brightness.value = 100;
     contrast.value = 100;
     saturation.value = 100;
     blur.value = 0;
 
-    brightnessValue.textContent = "100%";
-    contrastValue.textContent = "100%";
-    saturationValue.textContent = "100%";
-    blurValue.textContent = "0px";
+    document.getElementById("brightText")
+    .textContent = "100%";
 
-    filterButtons.forEach(btn=>{
+    document.getElementById("contrastText")
+    .textContent = "100%";
+
+    document.getElementById("saturationText")
+    .textContent = "100%";
+
+    document.getElementById("blurText")
+    .textContent = "0px";
+
+
+    filters.forEach(btn => {
         btn.classList.remove("active");
     });
 
-    filterButtons[0].classList.add("active");
+    filters[1].classList.add("active");
 
-    image.style.filter = "none";
+    updateImage();
 
 });
-
-
-/* ================= SCROLL REVEAL ================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-
-    revealElements.forEach(element=>{
-
-        const position =
-            element.getBoundingClientRect().top;
-
-        if(position < window.innerHeight-100){
-
-            element.classList.add("show");
-
-        }
-
-    });
-
-}
-
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
-
-revealOnScroll();
-
-
-/* ================= YEAR ================= */
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
 
 </script>
 
 </body>
-    </html>
+</html>
